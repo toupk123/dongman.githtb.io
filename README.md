@@ -1,2 +1,263 @@
 # dongman.githtb.io
 个人测试用
+<!doctype html>
+<html>
+<head>
+<style>
+	*{
+			box-sizing: border-box;
+			/*--为元素设定的宽度和高度决定了元素的边框盒。
+就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。*/
+		}/*在这里提出来，那么所有的元素，都会在已经设定的范围内绘制，大小就已经固定*/
+		
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	vertical-align: baseline
+}
+		ol,ul {
+	list-style: none
+}
+	html{
+		position:relative;/*这里是相对定位，也就是说相对于元素正常情况下，而产生的定位。*/
+		width:100%;
+		height:100%;
+		font-family:Microsoft YaHei,sans-serif;/*这里是在设置字体样式，第一种是指微软雅黑 第二种是通用字体*/
+		z-index:0;/*这里是指叠层*/
+		line-height:1.5; /*这里是指相对于默认行间距的倍数*/
+		background-image:url("zhi/5.jpg");
+		background-color:#121925;	
+		background-size:cover;	/*设置背景图大小，cover是指将背景图扩展足够大，*/	
+		background-position:50% 50%;/*这个属性设置背景原图像（由 background-image 定义）的位置，背景图像如果要重复，将从这一点开始。*/
+		background-attachment:fixed;/*background-attachment -- 定义背景图片随滚动轴的移动方式fixed代表背景图不动
+	scroll: 随着页面的滚动轴背景图片将移动（默认值为scroll）*/
+		font-weight:300;/*设置文本字体的粗细*/
+}
+body{
+	position:relative;
+	width:100%;
+	height:100%;
+	min-width:335px;
+	z-index:1;
+	}
+a {
+	color:#04202c;
+	}
+	a:hover{
+	 color: #00b3ba;
+		}
+	b{
+		background-color:rgba(0,179,186,0.4);
+		}
+	::selection{
+			background:#00b3ba;   /*被用户选取后的颜色，相当于点击后所发生的事件只能向 ::selection 
+	  选择器应用少量 CSS 属性：color、background、cursor 以及 outline。*/
+			}
+	::-moz-selection {
+	background: #00b3ba  /*Firefox 支持替代的 ::-moz-selection。*/
+}	
+.top_hr_style01{
+	 margin: 5px auto; /*上下边距5px左右边距自动(居中)*/
+	 width:70%;
+	 border:0px;
+	 border-bottom:1px solid #FFF;
+	}
+	.top_hr_style02{
+		border:0px;
+		border-bottom:1px dashed #858585;/*这里的dashed是虚线*/
+		}
+		/*<b> 标签规定粗体文本。在没有其他办法的时候，才使用b标签，尽量不要使用b标签*/
+	#top{
+		width:100%;
+		height:100%;
+		position:relative;  
+	  margin:0px auto;/*这是标准的写法，作用是页面居中对齐，写法margin:auto 作用也相同，
+		第一个元素代表上下边距不过0px 相对标准*/
+		z-index:11;	
+		}  /*在这里需要学习这些id的命名的写法，每个标签之间要具有联系。*/
+		#top_img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-image: url("zhi/5.jpg");
+	background-color: #121925;
+	background-size: cover;
+	background-position: 50% 50%; /*对于html标签中与top_img之间的关系，看似像是重复，
+	但这也是为了保证让不同屏幕大小的设备观看时，背景图都始终能够覆盖到。*/
+	background-attachment: fixed;
+	background-repeat:repeat-x;
+	z-index: 11
+}
+
+	#top_main{
+			width:100%;
+			height:100%;
+			position:relative;
+			margin:0px auto;
+			padding: 40px 0px 10px 0px;
+			
+			}
+	#top_logo{
+		height:30%;
+		min-height:80px;
+		max-height:244px;
+		}
+		#top_logo img{
+			animation:A 15s  linear 0s infinite;
+		-webkit-animation: A 15s linear 0s infinite;
+		 margin:0px auto;
+		 display:block;
+		 height:100%; 
+			}
+		@-webkit-keyframes A{
+			0%{
+				-webkit-transform: rotate(0deg)}
+			100%{
+					-webkit-transform: rotate(360deg)
+				}
+			}
+		@keyframes A {
+	0% {
+		transform: rotate(0deg)
+	}
+
+	100% {
+		transform: rotate(360deg)
+	}
+}
+  #top_title{
+	text-align:center;/*text-align文本排列的方式 center表示文本放置在中间*/
+	padding-top:12px;
+	height:10%;
+	}
+	#top_title img{
+		 margin-left:auto;
+		 margin-right:auto;
+		display:block;/*在这里换成快元素的话，再使用margin这个属性，
+		便可以将被元素居中摆放。如果不这样做，那就必须自己进行设置，但是展现的效果
+		会随着页面的大小变化而变化，如果这样设置，浏览器自己进行计算，会展现出最好的效果。*/
+		}
+	#top_title #top_title01{
+		height:83%;
+		max-height:59px;
+		min-height:30px;
+		}	
+		#top_title #top_title02{
+			height:17%;
+			max-height:11px;
+			min-height:7px;
+			}
+		#top_navlist {
+				display:block;
+				width:30%;
+				height:220px;
+				max-width:220px;
+				margin-left: auto;
+				margin-right:auto;  /*这与margin：auto的区别在于，这两行代码，并不会改变margin的
+		                上下边距 margin：auto则是直接设置上下边距为0px*/
+				margin-top:50px;
+				}
+				#top_navlist::after { /*:after 选择器在被选元素的内容后面插入内容。*/
+	    content: " ";
+	   display: block;
+	   width: 20%;
+	      height: 150px  /*为什么要使用这个content如果有一个DIV作为外部容器，
+	内部的DIV如果设置了float样式，则外部的容器DIV因为内部没有clear，导致不能被撑开。外部浏览器不会随着内容变化而变大
+这个clearfix的CSS使用了after这个伪对象，
+它将在应用clearfix的元素的结尾添加content中的内容。在这里添加了一个""，外部的容器大小，便就被撑开*/
+}
+
+  .top_nav{
+	display:block;
+	width:100%;
+	max-height: 40px;
+	min-height: 10px;
+	margin-top: 15px;
+	text-decoration: none;   /*CSS文字修饰为无；一般用于设置清除超链接的默认下划线：清理掉a元素中的下划线
+	   这个属性允许对文本设置某种效果，如加下划线。如果后代元素没有自己的装饰，
+	  祖先元素上设置的装饰会“延伸”到后代元素中。不要求用户代理支持 blink。
+	*/
+	font-size:90%;
+	vertical-align: middle; /*规定子元素放在父元素中间，是指在x抽，也就是垂直对齐*/
+	color: #fff;
+	letter-spacing: .5px;  /*规定同一行中的字符之间的间隔。*/
+	text-align: center;  /*text-align文本排列的方式 center表示文本放置在中间*/
+			-webkit-transition: .2s linear;
+	  -moz-transition: .2s linear;
+	  -o-transition: .2s linear;
+   	transition: .2s linear;
+		line-height: 180%/*行间间隔*/
+	}
+	.top_nav:hover {
+	border-radius: 3px;/* 圆角特效*/
+	background-color: #fff
+}
+#top_footer {
+	padding: 4px 10px 4px 10px;
+	background-color: #04202c;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 12;
+	-webkit-transition: .2s linear;
+	-moz-transition: .2s linear;
+	-o-transition: .2s linear;
+	transition: .2s linear
+}
+#top_copyright {
+	display: block;
+	-webkit-transition: .2s linear;
+	-moz-transition: .2s linear;
+	-o-transition: .2s linear;
+	transition: .2s linear;
+	color: #858585;
+	font-size: 10px;
+	letter-spacing: 1.5px;
+	text-align: center
+}
+@media screen and (max-width:500px) {/*这是在判断屏幕大小*/
+	#top_footer {
+		padding: 1px
+	}
+
+	#top_copyright {
+		font-size: 8px;
+		letter-spacing: 0;
+		text-align: center
+	}
+}
+</style>
+</head>
+<body>
+<div id="top">
+<div id="top_img">
+<main id="top_main">
+<div id="top_logo"><img src="zhi/toplogo.png"></div>	
+<div id="top_title"><img id="top_title01" src="zhi/toptitle01.png"><hr class="top_hr_style01"><img id="top_title02" src="zhi/toptitle02.png"> </div>
+<ul id="top_navlist">
+<a class="top_nav" href="2.html"><li>测试</li></a>
+<a class="top_nav" href="2.html"><li>测试</li></a>
+<a class="top_nav" href="2.html"><li>测试</li></a>
+<a class="top_nav" href="2.html"><li>测试</li></a>
+<a class="top_nav" href="2.html"><li>测试</li></a>
+</ul>
+</main>
+<footer id="top_footer"><!--这个放置在页脚的标签-->
+<span id="top_copyright">
+<hr class="top_hr_style02">	
+这只是一段测试用文字。
+<audio autoplay="autoplay"><source src="http://www.hacg.li/mp3/onj001.mp3" type="audio/mpeg"></audio><!--这个是音-->
+<hr class="top_hr_style02">
+	<a href="http://www.hacg.li/wp/">琉璃神社 </a>copyright ? 2011-2016 HACG.ME All Rights Reserved.<a href="http://www.hacg.li/wp/sitemap.html">SITEMAP</a>
+</span>
+</footer>
+</div>
+</div>
+</body>	
+</html>
