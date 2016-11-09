@@ -1,0 +1,573 @@
+﻿<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width"/>
+      <title>这只是用于测试而已</title>
+      <style>
+      	* {
+      	  padding:0px;
+      	  margin:0px;
+      	}
+      	a {
+      		text-decoration:none;
+      		color:inherit;
+      	}
+      	ul {
+      		list-style:none;
+      	}
+      	span {
+         color:#bbb;
+      	}
+      	body {
+      	  font:15px "Microsoft YaHei","Helvetica Neue,Helvetica",Arial,sans-serif;
+          padding:0 2em;
+          color:#bbb;
+          background:url("name/camouflage.png") repeat  top left ;
+      	}
+      	#page {
+      	   
+      		margin:2em auto;
+      		max-width:1024px;
+      		background:#0f0f0f;
+        }
+        #top {
+        	position:relative;
+     
+        }
+        #logo {
+        	padding:5em 0 2.5em;
+        	margin:0 35% 0 7.6% ;
+        	display:block;
+        }
+        @media (max-width:650px) {
+        	#logo {
+        	margin-right:7.6%;
+          }
+        }
+        #logo h1 a{
+        	font-size:30px;
+        	font-weight:bold;
+        	color:#eee;
+        	line-height:36px;
+        }
+        #logo h2 p{
+        	font-size:14px;
+        	color:#858585;
+
+        }
+        #top_a {
+        	 padding:2em 0 0;
+        	 line-height:1.5em;
+        }
+        #top1 {
+        	 position:absolute;
+        	 right:7.6%;
+        	 top:2em;
+        }  
+        #top1 .shuru {
+        	width:50px;
+        	height:20px;
+        	transition:.5s;
+        }
+        #top1 .shuru:focus {
+        	width:175px;	
+        }
+        #top1 .submit {
+        	display:none;
+        }
+        #time {
+        	width:100%;
+          overflow:hidden;
+          margin-bottom:-5px;
+        }	  	
+        #time ul{
+        	position:relative;
+        	width:500%;
+        }
+        #time li {
+        	display:block;
+        	float:left;
+          width:20%;
+        }
+        #time ul li img {
+          width:100%;
+          height:auto;
+          max-height:400px;
+        }
+        nav {
+        	display:block;
+        	width:100%;
+        	background:#000;
+        }
+        .top_nav {
+        	margin:0 7.6%;
+        }
+        .top_nav li{
+        	display:inline-block;
+        }
+        .top_nav li a{
+        	padding:0 1.2em; 
+        	font-size:13px;
+        	color:#eee;
+        	display:block;
+        	line-height:3.33em;
+        }
+        .top_nav li a:hover {
+        	background:#fff;
+        	color:#000;
+        }
+        @media (max-width:650px) {
+          .top_nav li a{
+          font-size:12px;	
+          padding:0 1em;
+          }
+        }
+        #main {
+        	padding:1.6253em 0 0;
+           //撑开容器的话，就必须设置宽度。如果不设置宽度，
+             //就使用clear :both; ，也是可以撑开容器的
+            //注意这两种方式二选一就可。
+            //若是考虑到ie浏览器的兼容的话，就尽量使用clear
+            //另外一种情况，就是为了不必要的放置div使用clear,就使用inline-block；
+            //同时需要注意一点，那就是当父容器中，有子容器不是浮动的话，且想要正常文档流顺序，就使用clear；
+            //因为一个浮动元素块，正常元素块则会是“环绕”浮动块，
+             //使用这个的话，就不会有问题。同时，可以撑开父容器。
+             //注意只是单纯使用inline-block的话，那父容器虽然会被撑开，但是原规则不会改变，若是想要
+             //某些元素块按照正常的文档流顺序的话，还是需要使用clear.
+             //暂时进行总结：若父容器中的东西，全是浮动的话，一般这两种是没有区别的，
+             //若只是部分浮动的话，那就使用clear最合适。
+        }
+        #x1_left {
+        	float:left;
+        	width:100%;
+        	margin:0 -26.4% 0 0 ;
+        }
+        #content {
+        	margin:0  34% 0 7.6%;
+        	width:58.4%;
+        }         
+        .page-article a:hover {
+        	text-decoration: underline;
+        }
+        .page-article a {
+        	color:#e4741f;
+        }
+        
+        .page-title {
+        	font-size:14px;
+        	line-height:1.5em;
+        	margin:0 0 2em;
+          letter-spacing:0.05em;
+        }
+        .page-article {
+        	padding:0 0 1.5em;
+        	margin :0 0 1.5em;
+        	border-bottom:1px solid #222;
+        }
+        .article-title {
+        	font-size:26px;
+        	line-height:1.5em;
+        	font-weight:bold;
+        	padding-bottom:15px;
+        }
+        .article-title a{
+        	color:#eee;
+        }
+        .article-title a:hover {
+        	color:#e4741f;
+        	text-decoration:none;
+        }
+        @media (max-width:650px){
+        	.article-title {
+        		font-size:21px;
+        	}
+        }
+         .article-content {
+            padding:2.5em 0 0 0;
+            margin-bottom:2em;
+        }
+
+
+        .article-content p {
+           margin-bottom:1.5em;      	
+        }
+        .article-content img {	
+        	max-width:98%;
+        	height:auto;
+        }
+        .article-footer-meta {
+        	font-size:12px;
+        	line-height:18px;
+        	font-weight:300;
+        }
+        #x1_right {
+        	float:right;
+        	width:18.8%;
+        	margin-right:7.6%;
+        }
+
+        @media (max-width: 800px) {
+          #x1_right{
+        		float:none;
+        		margin:0 7.6%;
+        		width:auto;
+        	}
+        	#content {
+        		width:auto;
+        		margin:0 7.6%;
+        	}
+        }     
+        center {
+        	display:block;
+        	margin:5px;
+        }
+         .bottom-nav {
+         	 clear:both;
+         }
+         .bottom-nav a{
+         	border:2px solid #bfbfbf;
+         	padding:2px 5px;
+         }
+         #page-title {
+         	  color:#666;
+         	  text-align:center;
+         	  line-height:2.2em;
+         	  font-size:12px;
+         	  padding:2.2em 0.5em;
+         	  background:#000;
+        }
+        #page-title a:hover{
+        	text-decoration:underline;
+        	color:#e4741f;
+        }
+      </style>
+      <script>
+      	var MYF={};
+      	MYF.time=(function(){
+      		 var _i=0;
+      		 return{
+      		  	ti:function(element,time1,z){
+      		  		setInterval(function(){
+      	           if(_i<z-2){
+      	    	     _i++
+      	           } else {
+      	    	     element.style.left="0%";
+      	    	     _i=0;
+      	    	       time1=0;
+      	           };     		 	  	  
+      	           for(var i=1;i<=100;i++){
+      		     		 setTimeout(function(){	
+      		  	   	   time1-=1;
+      		  	   	element.style.left=time1+"%";
+      		  	     },i*2); 
+      		  	   } ;	
+      	        },5000);
+      	        alert("你好");		   	
+      		 	  }
+      	  };
+      	}());
+
+      window.onload=function(){
+      (function() { 
+      	var _i=0;        
+      	var   a=document.getElementById("time"),
+      	      c=a.getElementsByTagName("ul")[0],
+      		      d=parseInt(c.style.left),
+      	      e=MYF.time;
+      	      e.ti(c,d,5);
+      	      
+      	      
+      	/*var ss=setInterval(function(){
+      	    if(_i<3){
+      	    	_i++
+      	    } else {
+      	    	c.style.left="0%";
+      	    	_i=0;
+      	    	 d=0;
+      	    }
+      	    s();
+      	},5000);
+      	
+      	var s=function(){
+      		     	for(var i=0;i<=9;i++){
+      		     		 setTimeout(function(){	
+      		  	   	d-=10;
+      		  	   	c.style.left=d+"%";
+      		  	     },i*10); 
+      		  	} 	
+      	};//切换函数
+       */  
+     
+       
+       
+       })();
+      }
+      </script>
+    </head>	
+    <body>
+    	 <div id="page">
+    	    <header id="top">
+    	    	 <hgroup id="logo">
+               <h1><a>测试网页—	QUAN</a></h1>
+               <h2><p>这只是自己测试用 用于编写响应式布局</p></h2>
+    	    	 </hgroup>    	 
+    	     	 <form id="top1" action="" method="get">
+    	    	 <input type="text"  class="shuru" name="s" placeholder="搜索">
+    	    	 <input type="submit" class="submit" value="搜索">
+    	    	 </form>   
+    	    </header> 	    	    	  
+    	    <div id="time" style="width:100%">
+    	    	 	 <ul style="left:0%;">
+    	    	 	 	 <li><a><img src="name/1173415.jpg"></a></li>
+    	     	 	 	 <li><a><img src="name/1173409.jpg"></a></li>
+    	       	 	 <li><a><img src="name/1173299.jpg"></a></li>
+    	    	   	 <li><a><img src="name/1057060.jpg"></a></li>
+       	 	 	     <li><a><img src="name/1173415.jpg"></a></li>
+    	    	 	 </ul>
+    	    	  </div>
+    	    <nav >
+    	      <ul class="top_nav">
+    	    	  <li><a>首页</a></li>
+    	    	  <li><a>文章</a></li>
+    	    	  <li><a>动画</a></li>
+    	    	  <li><a>漫画</a></li>
+    	    	  <li><a>游戏</a></li>
+    	    	  <li><a>音乐</a></li> 
+    	    	  <li><a>使用说明</a></li>   
+    	    	</ul>	
+    	    </nav>     
+    	    <div id="main">             
+    	    	 	<div id="x1_right">
+             </div>      
+             <div id="x1_left">
+             	<div id="content">
+             		<header class="page-header">
+             		  <h1 class="page-title">
+             		 	   分类目录归档:
+             		 	  <span>游戏</span>
+             		  </h1>	
+             		</header>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是一段测试声明，并没有任何东西</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是一段测试声明，并没有任何东西</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是一段测试声明，并没有任何东西</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是一段测试声明，并没有任何东西</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是一段测试声明，并没有任何东西</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             	</div>
+             </div>   	    	 
+             <center>
+               <div class="bottom-nav">
+               	 <span>1</span>
+               	 <a href="#">2</a>
+               	 <a href="#">3</a>
+               	 <a href="#">4</a>
+               	  <span>...</span>
+               	 <a href="#">最旧 »</a>
+               </div>	
+             </center>
+          </div>  
+          <footer id="page-title">
+          	<center>
+          		这只是一段测试文字
+          		<a href="#">琉璃神社</a>
+          		测试文字
+          	</center>
+          </footer> 
+    	 </div>	
+    </body>
+</html>
