@@ -264,10 +264,11 @@
       		     	setTimeout(function(){	
       		  	   	   time1-=2; 
       		  	   	element.style.left=time1+"%";
-                    if(time%100>-60){
+                    if(time1%100>-60){
                      ma=i*1;   
                     } else {
                      ma=i*100;
+                        alert("ce");
                     }},ma); 
       		  	   } ;})();	
       	        },5000);
