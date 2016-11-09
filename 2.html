@@ -264,7 +264,7 @@
       		  	   	   time1-=2;
                       
       		  	   	element.style.left=time1+"%";
-      		  	     },i*10); 
+      		  	     },time1%100>-60?i*1:i*10); 
       		  	   } ;})();	
       	        },5000);
       	        alert("你好");		   	
@@ -280,7 +280,7 @@
       		      d=parseInt(c.style.left),
       	      e=MYF.time;
       	      e.ti(c,d,5);
-      	      alert(14%10);
+
       	      
       	/*var ss=setInterval(function(){
       	    if(_i<3){
