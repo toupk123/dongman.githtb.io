@@ -259,9 +259,13 @@
       	           };     		 	  	  
       	           (function() {
                     var i=1;
-                    for(i;i<=50;i++){
+                    for(i;i<=75;i++){
       		     	setTimeout(function(){	
-      		  	   	time1-=2;
+                    if(time1%100>-50) {
+      		  	   	   time1-=2;
+                    } else {
+                        time1=-4
+                      };
       		  	   	element.style.left=time1+"%";
       		  	     },i*2); 
       		  	   } ;})();	
