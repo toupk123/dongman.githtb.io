@@ -246,8 +246,7 @@
       <script>
       	var MYF={};
       	MYF.time=(function(){
-      		 var _i=0,
-                 ma;
+      		 var _i=0;
       		 return{
       		  	ti:function(element,time1,z){
       		  		setInterval(function(){
@@ -262,7 +261,7 @@
       		     	setTimeout(function(){	
       		  	   	   time1-=2; 
       		  	   	element.style.left=time1+"%";
-                  },10);
+                      },100);
                     };
       	        },5000);
       	        alert("你好");		   	
