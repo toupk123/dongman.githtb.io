@@ -68,6 +68,7 @@
         #top1 .shuru {
         	width:50px;
         	height:20px;
+            border-radius:2px;
         	transition:.5s;
         }
         #top1 .shuru:focus {
@@ -256,9 +257,13 @@
       	    	     _i=0;
       	    	       time1=0;
       	           };     		 	  	  
-      	           for(var i=0;i<=9;i++){
-      		     		 setTimeout(function(){	
+      	           for(var i=0;i<=14;i++){
+      		     	setTimeout(function(){	
+                    if(time1<50) { 
       		  	   	time1-=10;
+                    } else {
+                     time1-=5;
+                    }
       		  	   	element.style.left=time1+"%";
       		  	     },i*25); 
       		  	   } ;	
