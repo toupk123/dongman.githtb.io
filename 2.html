@@ -259,12 +259,13 @@
       	           };     		 	  	  
       	           (function() {
                     var i=1;
-                    for(i;i<=140;i++){
+                    for(i;i<=80;i++){
       		     	setTimeout(function(){	
                     if(time1%100>-80) {
       		  	   	   time1-=2;
                     } else {
-                        time1=-0.1
+                        time1=-0.5
+                        alert("n");
                       };
       		  	   	element.style.left=time1+"%";
       		  	     },i*2); 
