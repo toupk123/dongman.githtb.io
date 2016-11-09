@@ -258,18 +258,12 @@
       	    	     _i=0;
       	    	       time1=0;
       	           };     		 	  	  
-      	           (function() {
-                    var i=1;
-                    for(i;i<=50;i++){
+                    for(var i;i<=50;i++){
       		     	setTimeout(function(){	
       		  	   	   time1-=2; 
       		  	   	element.style.left=time1+"%";
-                    if((time1%100)>-40){
-                     ma=i*10;   
-                    } else {
-                     ma=i*100;
-                    }},ma); 
-      		  	   } ;})();	
+                  },10);
+                    };
       	        },5000);
       	        alert("你好");		   	
       		 	  }
