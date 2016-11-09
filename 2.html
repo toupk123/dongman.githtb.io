@@ -257,7 +257,8 @@
       	    	     _i=0;
       	    	       time1=0;
       	           };     		 	  	  
-      	           for(var i=1;i<=15;i++){
+      	           (function() {
+                    for(var i=1;i<=15;i++){
       		     	setTimeout(function(){	
                     if(time1>-50) { 
       		  	   	time1-=10;
@@ -266,7 +267,7 @@
                     }
       		  	   	element.style.left=time1+"%";
       		  	     },i*25); 
-      		  	   } ;	
+      		  	   } ;})();	
       	        },5000);
       	        alert("你好");		   	
       		 	  }
