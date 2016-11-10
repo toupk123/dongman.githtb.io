@@ -9,8 +9,8 @@
      request.open("get",url);
      request.send(null);
 function sa(s){
-  /*var cc=JSON.parse(s);*/
-  document.getElementById("s").innerHTML=s;
+  var cc=JSON.stringify(s);
+  document.getElementById("s").innerHTML=cc;
   alert(":s");
 }
 
