@@ -9,7 +9,7 @@
      request.open("get",url);
      request.send(null);
 function sa(s){
-  var cc=JSON.stringify(s);
+  var cc=JSON.parset(s);
   document.getElementById("s").innerHTML=cc;
   alert(":s");
 }
