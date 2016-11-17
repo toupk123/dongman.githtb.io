@@ -19,6 +19,10 @@
       	span {
          color:#bbb;
       	}
+      	time {
+      		color:#e4741f;
+      		font-weight:bold;
+      	}
       	body {
       	  font:15px "Microsoft YaHei","Helvetica Neue,Helvetica",Arial,sans-serif;
           padding:0 2em;
@@ -99,9 +103,15 @@
         	display:block;
         	width:100%;
         	background:#000;
+         background-image:linear:-gradient(left,#ccc,#000);
+         background-image:-o-linear-gradient(left,#ccc,#000);
+         background-image:-webkit-linear-gradient(left,#ccc,#000);
+         background-image:-ms-linear-gradient(left,#ccc,#000);
+         background-image:-moz-linear-gradient(left,#ccc,#000);
         }
         .top_nav {
         	margin:0 7.6%;
+        	
         }
         .top_nav li{
         	display:inline-block;
@@ -200,7 +210,12 @@
         	font-size:12px;
         	line-height:18px;
         	font-weight:300;
+        }             			
+        #video {
+           position:relative;	
+           overflow:hidden;
         }
+
         #x1_right {
         	float:right;
         	width:18.8%;
@@ -241,13 +256,17 @@
         	text-decoration:underline;
         	color:#e4741f;
         }
+        #ss {
+        	width:100%;
+        }
       </style>
+      <script src="name/jquery-3.1.1.js"></script>
       <script>
       	var MYF={};
       	MYF.time=(function(){
       		 var _i=0;
       		 return{
-      		  	ti:function(element,time1,z){
+      		  	ti:function(element,time1,z,fuhao){
       		  		setInterval(function(){
       	           if(_i<z-2){
       	    	     _i++
@@ -258,52 +277,109 @@
       	           };     		 	  	  
       	           for(var i=1;i<=100;i++){
       		     		 setTimeout(function(){	
-      		  	   	   time1-=1;
+      		  	   	   time1+=fuhao;
       		  	   	element.style.left=time1+"%";
       		  	     },i*2); 
       		  	   } ;	
       	        },5000);
-      	        alert("你好");		   	
       		 	  }
       	  };
       	}());
-
-      window.onload=function(){
+        MYF.EventUtil={
+		         addHandler:function(element,type,handler){
+		         if(element.addEventListener){
+		          element.addEventListener(type,handler,false);
+		      	   } else if(element.attachEvent){ 
+		     	   element.attachEvent("on"+type,handler);
+		     	  } 
+		    },
+		  removeHandler: function(element,type,handler){
+		  	  if(element.removerEventListeren){
+		  	  	   element.removerEventListeren(type,handler,flase);
+		  	  	} else {
+		  	  		  element.detachEvent("on"+type,handler)
+		  	  	}
+		  }, 
+		  getEvent: function(event){
+		  	return event? event: window.event;
+		  },
+		  getTarget:function(event){
+		  	return event.target||event.srcElement;
+		  },
+		  preventDefault:function(event){
+		  	if(event.preventDefault){
+		  		event.preventDefault();
+		  	} else {
+		  		 event.returnValue=false;
+		  		}
+		  	},
+		  stopProagation: function(event){
+		  	if(evet.stopProagation){
+		  		event.stopProagation();
+		  	} else {
+		  		event.cancelBubble=true;
+		  	}
+		  },
+	};	
+       MYF.video={
+       	    videoplay: function(video,videosrc){
+       	       	       if(video.canPlayType("video/mp4")!=""){
+       	       	    	 videosrc+=".mp4";
+       	       	      } 
+       	       	       video.setAttribute("src",videosrc);
+       	       	       video.setAttribute("controls","controls");
+       	       	       video.setAttribute("autoplay","trun");	
+                     },//这里是自动播放函数
+             videonav: function(vedio,videonav){//这里是按照导航目录上的顺序，来播放视频
+              for(var i=0,_i=videonav.length;i<_i;i++){
+              	(function(i){              		  
+              		 event=MYF.EventUtil.getEvent(event);
+              		var sss=videonav[i].getAttribute("title");
+                   MYF.EventUtil.addHandler(videonav[i],"click",function(){
+              		  MYF.video.videoplay(vedio,sss);
+                    MYF.EventUtil.preventDefault(event);//这里是取消默认行为
+                 /*这里是依赖到了EventUtil的初始化，但影响没有多大。*/                             
+              		});
+             })(i);
+             };
+           }  
+      };
+      window.onload=function(){     	
       (function() { 
       	var _i=0;        
       	var   a=document.getElementById("time"),
       	      c=a.getElementsByTagName("ul")[0],
       		      d=parseInt(c.style.left),
       	      e=MYF.time;
-      	      e.ti(c,d,5);
-      	      
-      	      
-      	/*var ss=setInterval(function(){
-      	    if(_i<3){
-      	    	_i++
-      	    } else {
-      	    	c.style.left="0%";
-      	    	_i=0;
-      	    	 d=0;
-      	    }
-      	    s();
-      	},5000);
-      	
-      	var s=function(){
-      		     	for(var i=0;i<=9;i++){
-      		     		 setTimeout(function(){	
-      		  	   	d-=10;
-      		  	   	c.style.left=d+"%";
-      		  	     },i*10); 
-      		  	} 	
-      	};//切换函数
-       */  
-     
-       
-       
-       })();
-      }
-      </script>
+      	      e.ti(c,d,5,-1);
+       })();      	  
+       (function() {
+         var ss=document.getElementById("ss");
+          var c=document.getElementsByClassName("video-nav");
+          MYF.video.videonav(ss,c);
+    })();
+      setInterval(function(){
+      	$ .ajax({
+      	   type:"GET",
+       	   url:"name/111.json",
+      	   dataType:"json",
+      	   success: function(data){
+      	   	      var i=0,
+      	   	      _i=$("b"),
+      	   	      _time=$("time");
+                  for(i;i<_i.length;i++){
+                     (function(i){	
+                   _i[i].innerHTML=data[i].sub;
+                  _time[i].innerHTML=data[i].year+"年"+data[i].yue+"月"+data[i].ri+"日";
+
+                  })(i);
+                  }
+      	   }
+           });	
+      },6000);
+
+    }
+     </script>
     </head>	
     <body>
     	 <div id="page">
@@ -351,10 +427,63 @@
              		<article class="page-article">
              			<header class="article-header">
              				 <h1 class="article-title">
-             				    <a>这只是一段测试声明，并没有任何东西</a>
+             				    <a>这只是个人用于测试网页，不包含任何其他用途</a>
              			   </h1>
              			   <div class="article-meta">
              			     <span>发表于</span>
+             			     <a href="#">
+             			     	<time datetime="2016-10-05"></time>
+             			     </a>
+             			   </div>
+             			</header>
+             			<div class="article-content">
+             			   <p>  			
+             				 	<img src="name/1173415.jpg"/><br/>
+             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
+             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
+             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
+             				   <a href="#">继续阅读
+             				     <span class="meta-nav">→</span>	
+             				   </a>
+             			   </p>
+             			</div>
+             			<div id="video">
+             			<video id="ss"  poster="name/1173415.jpg" src="" ></video>
+            <ul id="video-1">
+             			  <li class="video-2"><a class="video-nav" href="name/1.mp4" title="name/1">第一集</a></li>	
+             				<li class="video-2"><a class="video-nav" href="name/2.mp4" title="name/2">第二集</a></li>
+             			</ul>
+                 </div>
+             			<footer class="article-footer-meta">
+             			  <span class="cat-links">
+             			  	<span>发表在</span>
+             			    <a href="#">游戏</a>	
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="tag-links">
+             			  	<span class="tag-links-title">
+             			  	标签为	
+             			  	</span>
+             			  	<a href="#">这只是测试文字</a>
+             			  </span>
+             			  <span class="sep">|</span>
+             			  <span class="conments-link">
+             			    <a href="#">
+             			    	<b></b>条回复
+             			    </a>
+             			  </span>
+             			</footer>
+             		</article>
+             		<article class="page-article">
+             			<header class="article-header">
+             				 <h1 class="article-title">
+             				    <a>这只是个人用于测试网页，不包含任何其他用途</a>
+             			   </h1>
+             			   <div class="article-meta">
+             			     <span>发表于</span>
+             			     <a href="#">
+             			     	<time datetime="2016-10-05"></time>
+             			     </a>
              			   </div>
              			</header>
              			<div class="article-content">
@@ -391,10 +520,13 @@
              		<article class="page-article">
              			<header class="article-header">
              				 <h1 class="article-title">
-             				    <a>这只是一段测试声明，并没有任何东西</a>
+             				    <a>这只是个人用于测试网页，不包含任何其他用途</a>
              			   </h1>
              			   <div class="article-meta">
              			     <span>发表于</span>
+             			     <a href="#">
+             			     	<time datetime="2016-10-05"></time>
+             			     </a>
              			   </div>
              			</header>
              			<div class="article-content">
@@ -431,10 +563,13 @@
              		<article class="page-article">
              			<header class="article-header">
              				 <h1 class="article-title">
-             				    <a>这只是一段测试声明，并没有任何东西</a>
+             				    <a>这只是个人用于测试网页，不包含任何其他用途</a>
              			   </h1>
              			   <div class="article-meta">
              			     <span>发表于</span>
+             			     <a href="#">
+             			     	<time datetime="2016-10-05"></time>
+             			     </a>
              			   </div>
              			</header>
              			<div class="article-content">
@@ -471,50 +606,13 @@
              		<article class="page-article">
              			<header class="article-header">
              				 <h1 class="article-title">
-             				    <a>这只是一段测试声明，并没有任何东西</a>
+             				    <a>这只是个人用于测试网页，不包含任何其他用途</a>
              			   </h1>
              			   <div class="article-meta">
              			     <span>发表于</span>
-             			   </div>
-             			</header>
-             			<div class="article-content">
-             			   <p>  			
-             				 	<img src="name/1173415.jpg"/><br/>
-             				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
-             				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
-             				 	“灵祗既乡，五位时叙，絪緼玄黄，将绍厥后.
-             				   <a href="#">继续阅读
-             				     <span class="meta-nav">→</span>	
-             				   </a>
-             			   </p>
-             			</div>
-             			<footer class="article-footer-meta">
-             			  <span class="cat-links">
-             			  	<span>发表在</span>
-             			    <a href="#">游戏</a>	
-             			  </span>
-             			  <span class="sep">|</span>
-             			  <span class="tag-links">
-             			  	<span class="tag-links-title">
-             			  	标签为	
-             			  	</span>
-             			  	<a href="#">这只是测试文字</a>
-             			  </span>
-             			  <span class="sep">|</span>
-             			  <span class="conments-link">
-             			    <a href="#">
-             			    	<b></b>条回复
-             			    </a>
-             			  </span>
-             			</footer>
-             		</article>
-             		<article class="page-article">
-             			<header class="article-header">
-             				 <h1 class="article-title">
-             				    <a>这只是一段测试声明，并没有任何东西</a>
-             			   </h1>
-             			   <div class="article-meta">
-             			     <span>发表于</span>
+             			     <a href="#">
+             			     	<time datetime="2016-10-05"></time>
+             			     </a>
              			   </div>
              			</header>
              			<div class="article-content">
