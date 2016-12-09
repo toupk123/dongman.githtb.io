@@ -30,7 +30,7 @@
           background:url("name/camouflage.png") repeat  top left ;
       	}
       	#page {
-      	   
+      	  position:relative;
       		margin:2em auto;
       		max-width:1024px;
       		background:#0f0f0f;
@@ -213,6 +213,7 @@
         #video {
            position:relative;	
            overflow:hidden;
+
         }
         #ss {
         	width:100%;
@@ -293,34 +294,60 @@
         	text-decoration:underline;
         	color:#e4741f;
         }
-         
+         .video_left {
+         	position:fixed;
+          width:20%  !important;
+          left:10px;
+         bottom:20px;
+         border-radius:5%;
+        }
+        @media (max-width:800px) {
+        	.video_left{
+        	width:80% !important;
+        	margin:0 7.6%;
+        	top:0px;
+        	border-radius:0px;
+        }
+        }
       </style>
       <script src="name/jquery-3.1.1.js"></script>
       <script>
-      	var MYF={};
+      	var MYF={};      	
       	MYF.time=(function(){    
+      		 var  iii=0;
+      		 var fuhao=0.5;
       		 var  play=function(element,time1,fuhao){  
-      		 	 	for(var i=1;i<=100;i++){
+      		 	 	for(var i=1;i<=50;i++){
       		     		 (function(i){
       		     		 	  setTimeout(function(){	
-      		  	   	   time1+=fuhao;
-      		  	   	element.style.left=time1+"%";
-      		  	   },i*2); })(i);
-      		  	 } };
+      		  	   	   iii=-[400*i/100-400*i*i/10000];
+      		  	   	element.style.left=time1+iii+"%";
+      		 //对于这里的换图函数，没有指定可以变化速度的参数
+      		  	   },i*18); })(i);
+      		  	 }
+      		  	
+      		 };
       		 return{
-      		  	ti:function(element,time1,z,fuhao){	
+      		  	ti:function(element,time1,z){	
       		  		 var _i=0;
-      		  		setInterval(function(){
-      		  	 play(element,time1,fuhao); 	//这里还是经典的闭包和作用域的问题，因为在ti中
+      		  		setInterval(function(){      
+     	    	     play(element,time1,fuhao); 
+      		                                 //这里还是经典的闭包和作用域的问题，因为在ti中
       		  	  if(_i<z-2){                  //存在的time1等变量，虽然是能够在其play中使用，但是time1存在的作用域
-      	    	     _i++                     //是在ti中，所以在play中执行完毕后，执行环境再次变为ti，并不能改变ti()中的变量，
-      	    	     time1-=100              //所以才会造成time1一直不变，在对象创建中，可以直接访问私有对象，但是共有对象之间，
-      	           } else {              //是必须带上运行环境。这是因为在这种方式下，私有对象在其上层环境内，共有对象之间，
-      	    	     element.style.left="0%";//互不相关的成员，之间无法直接运用，需要加上父对象如本例。
-      	    	     _i=0;
-      	    	       time1=0;
-      	           }; 
-      	        },5000);
+      	    	     _i++;          		  	
+                  //是在ti中，（原因是参数是按值传递）所以在play中执行完毕后，执行环境再次变为ti，并不能改变ti()中的变量，
+      	    	     time1-=100 ;            //所以才会造成time1一直不变
+      	    	   }else{  element.style.left="0%";
+      	    	     _i=0;                   //补充：在js中参数传递只能是按值传递，基本数据，就只是给个副本，
+      	    	       time1=0;              //不能改变外部的参数的值，对于引用数据类型，则可以改变外部的数据值。
+      	           };                      //补充:函数要运行的话，肯定是需要运行环境的，匿名函数能运行，
+      	        },5000);                   //是因为默认的运行环境是window，这也就解释在MYF.time中的匿名函数，可以直接使用
+      		 	  },                           //play()的原因，因为没匿名函数运行的时候，他们都是处于window的环境中，不需要添加函数运行环境
+      		 	  setfuhao:function(value){  //但是在MYF.video中，由于是处于环境MYF.video,如果直接运行autoplay（）
+      		 	  	fuhao=value;             //的话，是默认环境为window，但是在window中又不能找到，所以才会报错。
+      		 	  },//用于轮播方向和速度调整
+      		 	  getfuhao:function(){
+      		 	  	return fuhao;
       		 	  }
       	  };
       	}());
@@ -359,19 +386,23 @@
 		  		event.cancelBubble=true;
 		  	}
 		  },
-	};	
-       MYF.video={
+	};
+       MYF.video=(function(){
+       	    var iii=0;//这些私有变量的作用，只是用于控制video内的函数，
+       	    var ii=0; //所以不必变为共有的变量。
+       	    var  i=0;
+       	     return{
        	    videoplay: function(video,videosrc){
        	       	       if(video.canPlayType("video/mp4")!=""){
        	       	    	 videosrc+=".mp4";
-       	       	      } 
-       	       	       video.setAttribute("src",videosrc);
-       	       	       video.setAttribute("controls","controls");
+       	       	      }               		  //注意，就算是同对象之间，要访问彼此的话，
+       	       	       video.setAttribute("src",videosrc);//还是需要带上对象名的，如果不带，
+       	       	       video.setAttribute("controls","controls");//那就是默认在访问window对象的成员
        	       	       video.setAttribute("autoplay","trun");	
-                     },//这里是自动播放函数
-             videonav: function(vedio,videonav){//这里是按照导航目录上的顺序，来播放视频
+                     },//这里是自动播放函数  
+             videonav: function(vedio,videonav){//这里是按照导航目录上的顺序，来添加单击事件。
               for(var i=0,_i=videonav.length;i<_i;i++){
-              	(function(i){              		  
+              	(function(i){           		  
               		 event=MYF.EventUtil.getEvent(event);
               		var sss=videonav[i].getAttribute("title");
                    MYF.EventUtil.addHandler(videonav[i],"click",function(){
@@ -381,19 +412,86 @@
               		});
              })(i);
              };
-           }  
-      };
+           },
+           videofloat: function(video,video_div,video_left){ 
+                if(video.paused==false){
+          	  	 if($(video).offset().top-$(window).scrollTop()<0&&Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))>parseInt($(video).height())){
+          	        if(ii==0){  
+          	                    
+                ii++;	
+               var sss=document.createElement("img");
+               var ss=video_div.replaceChild(sss,video_div.childNodes[1]);
+               sss.src=video.getAttribute("poster");   
+               sss.id="sss";
+               
+               ss.removeAttribute("controls","false");
+               ss.className=video_left; 
+                document.body.appendChild(ss); 
+                event=MYF.EventUtil.getEvent(event);
+                MYF.EventUtil.preventDefault(event);
+                setTimeout(function(){
+                	video.play();  //这里是进行延迟性的保护
+                },1);
+
+                   }     
+                  }  
+                   if(ii==1) { 
+                  	if(parseInt($("#sss").offset().top-$(window).scrollTop())>0||Math.abs(parseInt($("#sss").offset().top-$(window).scrollTop()))<parseInt($("#sss").height())){
+                    var  sssss=document.body.removeChild(document.body.lastChild);
+                  	sssss.className=""; 
+                  	sssss.setAttribute("controls","true");
+                  	video_div.replaceChild(sssss,video_div.childNodes[1]);
+             
+                  	setTimeout(function(){
+                	    video.play();  //这里是进行了保护性延迟
+                       },1);
+                       ii--;
+                   }
+                  }            
+                 }  
+             },
+           videopause: function(video,element){//目前只用指定一个点击事件
+            	 MYF.EventUtil.addHandler(element,"click",function(){  
+            	    if(i==0){
+            	   setTimeout(function(){
+            	   	  video.pause();
+            	   	  i++;
+            	   	},20);	//这个控件负责暂停和播放功能。
+            	   } else {
+            	   setTimeout(function(){
+            	   	  video.play();
+            	   	  i--; //这里都是添加了延迟保护，避免用户多次点击控件而造成bug
+            	   	 },20);
+            	   }
+            	 });
+              },
+            videomuted:function(video,element){
+            	   MYF.EventUtil.addHandler(element,"click",function(){
+            	   	   if(iii==0){
+            	   	   video.muted=true;
+            	   	   iii++;
+            	   	 } else {
+            	   	 	 video.muted=false;
+            	   	 	 iii--;
+            	   	 	}
+            	   	});
+            	}
+            }
+      })();
       window.onload=function(){ 
-      var   a=document.getElementsByClassName("time");   	
+
+                     var   a=document.getElementsByClassName("time");   	
        for(var i=0,_i=a.length;i<_i;i++){
        (function(i) {        
       	     var _a=a[i],
       	      c=_a.getElementsByTagName("ul")[0],
       		    d=parseInt(c.style.left),
-      	      e=MYF.time;
-      	      e.ti(c,d,5,-1);     
+      		    f=c.getElementsByTagName("li").length,
+      	      e=MYF.time;  
+      	      e.ti(c,d,f);
        })(i);
       } 
+      
        (function() {
          var ss=document.getElementById("ss");
           var c=document.getElementsByClassName("video-nav");
@@ -405,6 +503,7 @@
        	   url:"name/111.json",
       	   dataType:"json",
       	   success: function(data){
+
       	   	      var i=0,
       	   	      _i=$("b"),
       	   	      _time=$("time");
@@ -419,7 +518,20 @@
            });	
       })();
 
-   }
+       (function(){
+            var s=document.getElementById("ss"); 
+                c=document.getElementById("video"),
+                videoclass="video_left",
+                sss=document.getElementById("video-pause"),
+                ssss=document.getElementById("video-muted");   	 
+            MYF.EventUtil.addHandler(window,"scroll",function(){
+         	  MYF.video.videofloat(s,c,videoclass); 
+              });
+            MYF.video.videopause(s,sss);
+            MYF.video.videomuted(s,ssss);
+            })();
+      }      	 
+     
      </script>
     </head>	
     <body>
@@ -453,7 +565,7 @@
     	    	  <li><a>音乐</a></li> 
     	    	  <li><a>使用说明</a></li>   
     	    	</ul>	
-    	    </nav>     
+    	    </nav>   
     	    <div id="main">        
     
              <div id="x1_left">
@@ -479,11 +591,13 @@
              			<div class="article-content">
              			   <p>  			
                         <div id="video">
-             			       <video id="ss"  poster="name/1173415.jpg" src="" ></video>
+             			       <video id="ss"  poster="name/1173415.jpg" src=""  playbackRate="15.0"></video>
                            <ul id="video-1">
              			           <li class="video-2"><a class="video-nav" href="name/1.mp4" title="name/1">第一集</a></li>	
              				         <li class="video-2"><a class="video-nav" href="name/2.mp4" title="name/2">第二集</a></li>
              			         </ul>
+             			         <a id="video-pause">暂停</a>
+             			         <a id="video-muted">静音</a>
                         </div> 
              				 	这只是一段测试文字：指天地的颜色。玄为天色，黄为地色。 
              				 	《易·坤》：“夫玄黄者，天地之杂也，天玄而地黄。”《汉书·扬雄传上》：
