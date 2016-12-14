@@ -333,7 +333,7 @@
       		  		setInterval(function(){      
      	    	     play(element,time1,fuhao); 
       		                                 //这里还是经典的闭包和作用域的问题，因为在ti中
-      		  	  if(_i<z-2){                  //存在的time1等变量，虽然是能够在其play中使用，但是time1存在的作用域
+      		  	  if(_i<=z-2){                  //存在的time1等变量，虽然是能够在其play中使用，但是time1存在的作用域
       	    	     _i++;          		  	
                   //是在ti中，（原因是参数是按值传递）所以在play中执行完毕后，执行环境再次变为ti，并不能改变ti()中的变量，
       	    	     time1-=100 ;            //所以才会造成time1一直不变
