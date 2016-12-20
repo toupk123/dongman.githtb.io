@@ -1,4 +1,6 @@
 ﻿<!doctype html>
+1428167430
+heH961113XYcong
 <html>
     <head>
       <meta charset="utf-8"/>
@@ -397,10 +399,12 @@
        	    videoplay: function(video,videosrc){
        	       	       if(video.canPlayType("video/mp4")!=""){
        	       	    	 videosrc+=".mp4";    //补充:这里其实是可以使用属性查找，获取src
-       	       	    	  }                     //等属性的
-       	       	                    		  //注意，就算是同对象之间，要访问彼此的话，
+       	       	    	  } else if(video.canPlayType("video/webm")!=""){                    //等属性的
+       	       	          videosrc+=".webm"; 
+       	       	         }          		  //注意，就算是同对象之间，要访问彼此的话，
        	       	       video.src=videosrc;//还是需要带上对象名的，如果不带，
-       	       	       video.controls="controls";//那就是默认在访问window对象的成员       	       	       	
+       	       	       video.controls="controls";//那就是默认在访问window对象的成员
+       	       	       
                      },//这里是自动播放函数，
              videonav: function(video,videonav){//这里是按照导航目录上的顺序，来添加单击事件。
               for(var i=0,_i=videonav.length;i<_i;i++){
@@ -594,7 +598,7 @@
              			<div class="article-content">
              			   <p>  			
                         <div id="video">
-             			       <video id="ss"  poster="name/1173415.jpg" src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' ></video>
+             			       <video id="ss"  poster="name/1173415.jpg" src=""  ></video>
                            <ul id="video-1">
              			           <li class="video-2"><a class="video-nav" href="name/1.mp4" title="name/1">第一集</a></li>	
              				         <li class="video-2"><a class="video-nav" href="name/2.mp4" title="name/2">第二集</a></li>
