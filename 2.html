@@ -397,9 +397,7 @@ heH961113XYcong
        	     doc=document;//这里是将全局变量进行存储，减少全局变量的查找。
        	     return{
        	    videoplay: function(video,videosrc){
-       	    	     if(video.canPlayType("video/flv")!=""){
-       	    	     	 videosrc+=".flv"; 
-       	    	     	} else if(video.canPlayType("video/webm")!=""){
+                  if(video.canPlayType("video/webm")!=""){
        	       	    	 videosrc+=".webm";    //补充:这里其实是可以使用属性查找，获取src
        	       	    	  } else if(video.canPlayType("video/mp4")!=""){                    //等属性的
        	       	          videosrc+=".mp4"; 
