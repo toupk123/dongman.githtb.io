@@ -433,9 +433,8 @@ heH961113XYcong
               //$(video).offset().top-$(window).scrollTop()距离可视区的距离；
               //$(window).scrollTop()表示元素所占滚动条的高度。
               if($(video).offset().top-$(window).scrollTop()<0){
-              	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))<parseInt($(video).height())){              	
-              	   
-              	 } else if(videoWidth==video.clientWidth){
+              	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))<parseInt($(video).height())){              	    	   
+              	  if(videoWidth==video.clientWidth){
           	         if(ii==0){              
                       ii++;	
                       var sss=doc.createElement("img"),
@@ -458,7 +457,8 @@ heH961113XYcong
                     } 
                    }   
                  }    
-               } 
+               }
+             } 
                   if(ii==1) { 
                   	if(parseInt($("#sss").offset().top-$(window).scrollTop())>0||Math.abs(parseInt($("#sss").offset().top-$(window).scrollTop()))<parseInt($("#sss").height())){
                     var  sssss=doc.body.removeChild(doc.body.lastChild).childNodes[0];
