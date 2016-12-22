@@ -427,6 +427,7 @@ heH961113XYcong
            videofloat: function(video,video_div,video_left){ 
                /*这个组件用于播放器进行浮动，但是注意，这里只是改变了
                 css的样式，所以可以自己控制浮动地点*/
+                var videoWidth=video.clientWidth;//返回宽度，没有单位，默认为px
                 if(video.paused==false){    
               //$(video).offset().top表示元素距离文档的距离；
               //$(video).offset().top-$(window).scrollTop()距离可视区的距离；
@@ -434,7 +435,7 @@ heH961113XYcong
               if($(video).offset().top-$(window).scrollTop()<0){
               	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))<parseInt($(video).height())){              	
               	   
-              	 } else {
+              	 } else if(videoWidth==video.clientWidth){
           	         if(ii==0){              
                       ii++;	
                       var sss=doc.createElement("img"),
