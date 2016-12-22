@@ -433,8 +433,8 @@ heH961113XYcong
               //$(video).offset().top-$(window).scrollTop()距离可视区的距离；
               //$(window).scrollTop()表示元素所占滚动条的高度。
               if($(video).offset().top-$(window).scrollTop()<0){
-              	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))==0.5*parseInt($(video).height())){              	    	   
-              	  var videoWidth2=video.clientWidth;	
+              	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))==parseInt($(video).height())*0.5){              	    	   
+              	  var videoWidth2=video.clientWidth;alert(“ss”);
                     if(videoWidth==videoWidth2){
           	         if(ii==0){              
                       ii++;	
