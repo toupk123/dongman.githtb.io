@@ -433,14 +433,18 @@ heH961113XYcong
                       ii++;	
                       var sss=doc.createElement("img"),
                       ss=video_div.replaceChild(sss,video_div.childNodes[1]),
-                      ssss=doc.createElement("div");
+                      ssss=doc.createElement("div"),
+                      time;//这个变量是用于储存当前播放时间。
                       sss.src=video.poster;   
-                      sss.id="sss";                     
+                      sss.id="sss";   
+                      time=video.currentTime;                
                ss.removeAttribute("controls");
                ss.className=video_left; 
                ssss.appendChild(ss)
-               doc.body.appendChild(ssss); 
+               doc.body.appendChild(ssss);
+                 
                 setTimeout(function(){
+                	video.currentTime=time;
                 	video.play();  //这里是进行延迟性的保护
                 },1);
 
