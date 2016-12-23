@@ -394,7 +394,8 @@ heH961113XYcong
 	};
        MYF.video=(function(){
        	    var ii=0, //所以不必变为共有的变量。用于浮动控件这些私有变量的作用，
-       	     doc=document;//这里是将全局变量进行存储，减少全局变量的查找。
+       	     doc=document,  //这里是将全局变量进行存储，减少全局变量的查找。
+       	     ti=0; //用于检查安卓浏览器是否有自己浮动的动作。  
        	     return{
        	    videoplay: function(video,videosrc){
                   if(video.canPlayType("video/webm")!=""){
@@ -427,17 +428,21 @@ heH961113XYcong
            videofloat: function(video,video_div,video_left){ 
                /*这个组件用于播放器进行浮动，但是注意，这里只是改变了
                 css的样式，所以可以自己控制浮动地点*/
-                var videoWidth=video.clientWidth;//返回宽度，没有单位，默认为px
-                if(video.paused==false){    
+                var videoWidth=video.clientWidth,//返回宽度，没有单位，默认为px
+                   videoTop=$(video).offset().top-$(window).scrollTop(),
+                   videoHeight=$(video).height();
+                 if(video.paused==false&&videoTop<0){    
               //$(video).offset().top表示元素距离文档的距离；
               //$(video).offset().top-$(window).scrollTop()距离可视区的距离；
               //$(window).scrollTop()表示元素所占滚动条的高度。
-              if($(video).offset().top-$(window).scrollTop()<0){
-              	if(Math.abs(parseInt($(video).offset().top-$(window).scrollTop()))==parseInt($(video).height())*0.5){              	    	   
-              	  var videoWidth2=video.clientWidth;alert(“ss”);
-                    if(videoWidth==videoWidth2){
-          	         if(ii==0){              
-                      ii++;	
+              if(Math.abs(parseInt(videoTop))<parseInt(videoHeight)){
+              	    var videoWidth2=video.clientWidth;
+              	    if(ti==0&&videoWidth==videoWidth2){//这里多添加一步判断，是为兼容某些浏览器
+              	      ti++;
+              	      } 
+              	   } //用于检查浏览器是否有默认的浮动动作。 
+              if(Math.abs(parseInt(videoTop))>parseInt(videoHeight)){ 
+          	         if(ti>0&&ii==0){  //进行自动浮动，如uc安卓浏览器。            
                       var sss=doc.createElement("img"),
                       ss=video_div.replaceChild(sss,video_div.childNodes[1]),
                       ssss=doc.createElement("div"),
@@ -449,16 +454,14 @@ heH961113XYcong
                ss.className=video_left; 
                ssss.appendChild(ss)
                doc.body.appendChild(ssss);
-                 
+                        ii++;
                 setTimeout(function(){
                 	video.currentTime=time;
                 	video.play();  //这里是进行延迟性的保护
                 },1);
 
                     } 
-                   }   
-                 }    
-               }
+                   }                  
              } 
                   if(ii==1) { 
                   	if(parseInt($("#sss").offset().top-$(window).scrollTop())>0||Math.abs(parseInt($("#sss").offset().top-$(window).scrollTop()))<parseInt($("#sss").height())){
