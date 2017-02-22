@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="audio">
  <head>
    <meta charset="utf-8"  name="viewport" content="width=device-width"/>
    <title>只是用于测试</title>
@@ -7,7 +7,13 @@
     <link href="name/Myf.css" rel="stylesheet" type="text/css">
    <script src="name/jquery-3.1.1.min.js"></script>
    <script src="name/bootstrap.min.js"></script> 
+ 
    <script src="name/Myf.js"></script>
+ <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+
+
+
    <style>
    * {
      margin:0px;
@@ -160,6 +166,9 @@
      .right-nav li a {
 	 color:#303030;
 	 }	
+	 .right-nav li a:focus {
+	 background:#f4645f;
+	 }
    .carousel-control span{
    position:absolute;
    top:40%;
@@ -177,6 +186,9 @@
 	  margin-right:20px;
 	  transition:0.2s;
 	}
+	.gedan {
+	background:#fff;
+	}
    </style>
   </head>
   <body>
@@ -191,8 +203,8 @@
            <li><a href="#">a</a></li>
          </ul>
 		 </li>
-	   <li><a href="#">音乐</a></li>
-	   <li><a href="#">漫画</a></li>
+	   <li><a href="#/home">音乐</a></li>
+	   <li><a href="#/about">漫画</a></li>
 	   <li><a href="#">杂谈</a></li>
 	  </ul>
 	  <form class="navbar-form navbar-right">
@@ -280,7 +292,7 @@
    </header>
     <div class="container" id="page">
      <div class="row main">
-	  <div class=" col-md-8  page-left">
+	  <div class=" col-md-8  page-left" ng-view="">
 	    <article class="post">
 		 <header class="post-header">
 		  <h1 class="post-title">
@@ -470,6 +482,33 @@
 		</h5>
         <a class="btn btn-default button">测试</a>
 		</div>
+		<div class="gedan"  ng-model="Audio" ng-controller="audioPlay">
+		 <table class="table table-hover">
+        	<tr>
+            <td><a>测试1</a></td>
+            <td><a  ng-click="play(0)"  href="" >{{Audio[0].name}}</a></td>
+			</tr>
+        	<tr>
+            <td><a>测试1</a></td>
+            <td><a  ng-click="play(1)" href="">{{Audio[1].name}}</a></td>
+			</tr>
+			<!--这里是可以使用ng-repeat来动态生成的，但是要为Audio增加一个标号，
+			并且使用repeat可能无法控制整体的布局-->
+        	<tr>
+            <td><a>测试1</a></td>
+            <td><a ng-click="play(2)"  href="">{{Audio[2].name}}</a></td>
+			</tr>
+        	<tr>
+            <td><a>测试1</a></td>
+            <td><a  ng-click="play(3)"  href="">{{Audio[3].name}}</a></td>
+			</tr>	
+        	<tr>
+            <td><a>测试1</a></td>
+            <td><a  ng-click="play(4)"   href="">{{Audio[4].name}}</a></td>
+			</tr>				
+		 </table>
+		 	<audio ng-src="{{audioPlay.src}}" ng-model="play.src" autoplay></audio>
+		</div>
 	  </aside>
 	 </div>
 	</div>
@@ -557,7 +596,246 @@
 	<li><a href="#">测试1</a></li>
 	</ul>
 	<a href ="#" class="btn btn-primary bottom-nav">回到顶部</a>
-	<audio src="name/RSP - さくら ~あなたに出会えてよかった~.mp3" autoplay></audio>
 	   <script src="name/Myfload.js"></script>
+	   	     <script type="text/ng-template" id="embedded.home.html">
+      <h1> Home </h1>	  <div class=" col-md-8  page-left" ng-view="">
+	    <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a  href=“http://pan.baidu.com/share/link?shareid=549135277&uk=1939956982” class="post-button btn btn-default" type="button">
+		  阅读全文
+		 </a>
+		</article>
+   <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a  href="http://pan.baidu.com/share/link?shareid=298424721&uk=1939956982" class="post-button btn btn-default" type="button">
+		  百度云链接
+		 </a>
+		</article>
+		   <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a  href=“http://pan.baidu.com/share/link?shareid=1176279506&uk=1939956982” class="post-button btn btn-default" type="button">
+		   百度云链接
+		 </a>
+		</article>
+		   <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a class="post-button btn btn-default" type="button">
+		  阅读全文
+		 </a>
+		</article>
+		   <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a  href=“http://pan.baidu.com/share/link?shareid=3739881031&uk=1939956982” class="post-button btn btn-default" type="button">
+		  链接
+		 </a>
+		</article>   <article class="post">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a class="post-button btn btn-default" type="button">
+		  链接
+		 </a>
+		</article>
+		   <article class="post ceshi">
+		 <header class="post-header">
+		  <h1 class="post-title">
+		     <a href="#">测试用的题目</a>			
+			</h1>		
+		<div class="post-mate">
+		  <span class="zuozhe">
+		   作者： 
+		   <a href="#">测试</a>
+		  </span>
+		 <time class="post-date">
+		  测试用
+		 </time>
+		 </div>
+		 </header>
+         <a class="post-media">
+		  <img src="name/1173415.jpg">
+		 </a>
+		 <p class="post-p">
+		 这只是一段测试用的文字
+		 </P>
+		 <a href=“http://pan.baidu.com/share/link?shareid=1976740133&uk=1939956982” class="post-button btn btn-default" type="button">
+		  链接
+		 </a>
+		</article>
+	  </div>
+
+  </script>
+
+  <script type="text/ng-template" id="embedded.about.html">
+ 
+  </script>
+	   
+	   <script>
+	    var app=angular.module("audio",["ngRoute"]);
+		app.controller("audioPlay",function($scope){
+		   $scope.Audio=[
+		      {
+			     "name" : "1111",
+			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+			   },
+		      {
+			     "name" : "222",
+			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+			   },
+		      {
+			     "name" : "333",
+			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+			   },
+		      {
+			     "name" : "444",
+			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+			   },
+		      {
+			     "name" : "55",
+			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+			   }		   
+		    ];		
+		   $scope.play=function(x){	
+
+		    $scope.audioPlay={			   
+			   "src":$scope.Audio[x].src           
+ 			 };
+		   }
+		});
+       app.controller('HomeController', function ($scope, $route) { $scope.$route = $route;});
+   app.controller('AboutController', function ($scope, $route) { $scope.$route = $route;});
+  app.config(function ($routeProvider) {
+    $routeProvider.
+    when('/home', {
+        templateUrl: 'embedded.home.html',
+        controller: 'HomeController'
+    }).
+    when('/about', {
+        templateUrl: 'embedded.about.html',
+        controller: 'AboutController'
+    }).
+    otherwise({
+        redirectTo: '/home'
+    });
+});
+
+		
+		
+
+	   </script>
+
+
+
   </body>
 </html>
