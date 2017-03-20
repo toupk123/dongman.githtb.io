@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://rawgit.com/angular/bower-angular/master/angular.min.js"></script>
+<script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  
+</head>
+<body ng-app='app'>
+ <a ui-sref='home.parent'>测试1</a>
+ <a ui-sref='home.child'>测试2</a>
+ <div ui-view=''>
+   </div>
+   <script>
+   angular.module('app',['ui.router'])	
+  .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider,$urlRouterProvider) {      
+       $urlRouterProvider.otherwise('/home'); 
+        $stateProvider     
+        .state("home.parent", {
+            url: '/parent',   
+            templateUrl:'2.html'
+        })    
+        .state("home.child", {//子路由
+            url: '/child',    
+            template:'<div>child策四哦</div>'
+        })  
+        .state("home", {//子路由
+            url: '/home',    
+            template:'<div>首页</div>'
+        })    
+    }]);  
+   </script>
+</body>
+</html>
