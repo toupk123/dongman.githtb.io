@@ -334,7 +334,7 @@
                     "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
                 }];
                 name.namef().then(function(sss){
-                    console.log('ssssssssssssssss',sss);
+                    $scope.list=sss.data;
 
                 })
                 $scope.play = function(x) {
