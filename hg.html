@@ -159,18 +159,18 @@
         <div class="container" id="page">
             <div class="row main">
                 <div class=" col-md-8  page-left">
-                    <article class="post ceshi" ng-repeat="x in [1,2,3,4,5]">
+                    <article class="post ceshi" ng-repeat="x in list">
                         <header class="post-header">
                             <h1 class="post-title">
                                 <a href="#">
-                                    测试用的题目
+                             		{{x.h1}}
                                 </a>
                             </h1>
                             <div class="post-mate">
                                 <span class="zuozhe">
                                     作者：
                                     <a href="#">
-                                        测试
+                                        {{x.zuozhe}}
                                     </a>
                                 </span>
                                 <time class="post-date">
@@ -179,12 +179,12 @@
                             </div>
                         </header>
                         <a class="post-media">
-                            <img src="name/1057060.jpg">
+                            <img  ng-src='x.img'>
                         </a>
                         <p class="post-p">
-                            这只是一段测试用的文字
+                            {{x.jianjie}}
                         </P>
-                        <a href=“http://pan.baidu.com/share/link?shareid=1976740133&uk=1939956982”
+                        <a  ng-href='x.lianjie'
                         class="post-button btn btn-default" type="button">
                             链接
                         </a>
