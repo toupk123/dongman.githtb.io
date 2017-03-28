@@ -163,6 +163,9 @@
    .carousel .left:hover{
        transform:translateX(-40px);
    }
+   .post-p{
+       text-indent: 2em;
+}
    .carousel .right{
    background: url('right.png');
    background-position: center;
