@@ -13,7 +13,7 @@
         <script src="name/bootstrap.min.js"></script>
         <script src="name/angular.js1.4.6angular.min.js"></script>
     </head>
-    <body>
+    <body  ng-controller="audioPlay">
         <header>
             <nav class="navbar navbar-default ">
                 <div class="container">
@@ -210,7 +210,7 @@
                             测试
                         </a>
                     </div>
-                    <div class="gedan" ng-model="Audio" ng-controller="audioPlay">
+                    <div class="gedan" ng-model="Audio">
                         <table class="table table-hover">
                             <tr   ng-repeat='x in [1,2,3,4,5]'>
                                 <td>
