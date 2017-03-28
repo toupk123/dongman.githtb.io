@@ -298,9 +298,21 @@
             回到顶部
         </a>-->
         <script>
-            var app = angular.module("audio", []);
-            app.controller("audioPlay",
-            function($scope) {
+     angular.module("audio",[])
+     .factory("name",
+            function($http, $q) {
+                return {
+                    namef: function(param) {
+                        param = param || {}
+                        var _data = {
+                            starTime: param.hasOwnProperty('startTime') ? param.startTime: ''
+                        }
+                        return $http.post('https://github.com/toupk123/dongman.githtb.io/edit/gh-pages/1.json');
+                    }
+                }
+            })
+  .controller("audioPlay",
+            function($scope,name) {
                 $scope.Audio = [{
                     "name": "1111",
                     "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
@@ -321,23 +333,15 @@
                     "name": "55",
                     "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
                 }];
-                console.log('ssssssssssssss');
+                name.namef().then(function(sss){
+                    console.log('ssssssssssssssss',sss);
+
+                })
                 $scope.play = function(x) {
 
                     $scope.audioPlay = {
                         "src": $scope.Audio[x].src
                     };
-                }
-            }).factory("name",
-            function($http, $q, Debug) {
-                return {
-                    namef: function(param) {
-                        param = param || {}
-                        var _data = {
-                            starTime: param.hasOwnProperty('startTime') ? param.startTime: ''
-                        }
-                        return $http.post('https://github.com/toupk123/dongman.githtb.io/edit/gh-pages/1.json');
-                    }
                 }
             })
         </script>
