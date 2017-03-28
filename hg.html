@@ -23,21 +23,14 @@
                     </a>
                     <ul class="nav nav-tabs navbar-nav  nav-ul top-nav">
                         <li class=" dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            <a  ui-sref='home.dongman'>
                                 动漫
                                 <span class="caret">
                                 </span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">
-                                        a
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a href="#/home">
+                            <a  ui-sref='home.manhua'>
                                 音乐
                             </a>
                         </li>
@@ -160,36 +153,9 @@
         <div class="container" id="page">
             <div class="row main">
                 <div class=" col-md-8  page-left">
-                    <article class="post ceshi" ng-repeat="x in list">
-                        <header class="post-header">
-                            <h1 class="post-title">
-                                <a href="#">
-                             		{{x.h1}}
-                                </a>
-                            </h1>
-                            <div class="post-mate">
-                                <span class="zuozhe">
-                                    作者：
-                                    <a href="#">
-                                        {{x.zuozhe}}
-                                    </a>
-                                </span>
-                                <time class="post-date">
-                                    测试用
-                                </time>
-                            </div>
-                        </header>
-                        <a class="post-media">
-                            <img  ng-src='{{x.img}}'>
-                        </a>
-                        <p class="post-p">
-                            {{x.jianjie}}
-                        </P>
-                        <a  ng-href='{{x.lianjie}}'
-                        class="post-button btn btn-default" type="button">
-                            百度云链接
-                        </a>
-                    </article>
+                    <div ui-view>
+
+                    </div>
                 </div>
                 <aside class="col-md-4 page-right">
                     <div class="page-right-title1">
@@ -299,7 +265,7 @@
             回到顶部
         </a>-->
         <script>
-     angular.module("audio",[])
+     angular.module("audio",['ui.router'])
      .factory("name",
             function($http, $q) {
                 return {
@@ -312,6 +278,23 @@
                     }
                 }
             })
+  .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider,$urlRouterProvider) {      
+       $urlRouterProvider.otherwise('/home'); 
+        $stateProvider     
+        .state("home", {
+            url: '/home',   
+            template:'<div ui-view></div>',
+            redirectTo:'home.manhua'
+        })    
+        .state("home.dongman", {//子路由
+            url: '/dome1',    
+            templateUrl:'dome/dome1.html'
+        })  
+        .state("home.manhua", {//子路由
+            url: '/home2',    
+            template:'dome/dome2.html'
+        })    
+    }])
   .controller("audioPlay",
             function($scope,name) {
                 $scope.Audio = [{
