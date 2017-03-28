@@ -1,841 +1,349 @@
 <!doctype html>
 <html ng-app="audio">
- <head>
-   <meta charset="utf-8"  name="viewport" content="width=device-width"/>
-   <title>只是用于测试</title>
-   <link href="name/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="name/Myf.css" rel="stylesheet" type="text/css">
-   <script src="name/jquery-3.1.1.min.js"></script>
-   <script src="name/bootstrap.min.js"></script> 
-   <script src="name/Myf.js"></script>
-   <script src="name/angular.js1.4.6angular.min.js"></script>
-   <script src="name/angular-route1.3.13angular-route.js"></script>
+    
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width" />
+        <title>
+            只是用于测试
+        </title>
+        <link href="name/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="name/Myf.css" rel="stylesheet" type="text/css">
+        <link href="name/hg.css" rel="stylesheet" type="text/css">
+        <script src="name/jquery-3.1.1.min.js"></script>
+        <script src="name/bootstrap.min.js"></script>
+        <script src="name/angular.js1.4.6angular.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default ">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        网站首页
+                    </a>
+                    <ul class="nav nav-tabs navbar-nav  nav-ul top-nav">
+                        <li class=" dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                动漫
+                                <span class="caret">
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        a
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#/home">
+                                音乐
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/about">
+                                漫画
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                杂谈
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" />
+                        <a data-toggle="modal" href="#modal-1" class="btn btn-default">
+                            注册
+                        </a>
+                        <a data-toggle="modal" href="#modal-1" class=" btn btn-default">
+                            登录
+                        </a>
+                    </form>
+                </div>
+                <div class="modal fade" id="modal-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>
+                                        ×
+                                    </span>
+                                </button>
+                                <!--这里是关闭模态窗-->
+                                <h4 class="modal-title">
+                                    会员登录
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row col-md-8 col-md-offset-2">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>
+                                                    账号
+                                                </label>
+                                                <input class="form-control" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    密码
+                                                </label>
+                                                <input class="form-control" type="password">
+                                                </input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 注脚 -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">
+                                    登录
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="carousel slide" id="myC" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <!--轮播的指标-->
+                        <li data-target="#myC" data-slide-to="0" class="active">
+                        </li>
+                        <li data-target="#myC" data-slide-to="1">
+                        </li>
+                        <li data-target="#myC" data-slide-to="2">
+                        </li>
+                        <li data-target="#myC" data-slide-to="3">
+                        </li>
+                    </ol>
+                    <!--轮播项目-->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="name/1173409.jpg">
+                            <div class="carousel-caption">
+                                标题1
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="name/1173409.jpg">
+                            <div class="carousel-caption">
+                                标题2
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="name/1057060.jpg">
+                            <div class="carousel-caption">
+                                标题3
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="name/1173409.jpg">
+                            <div class="carousel-caption">
+                                标题4
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myC" data-slide="prev">
 
+                    </a>
+                    <a class="right carousel-control" href="#myC" data-slide="next">
 
-
-   <style>
-   * {
-     margin:0px;
-	 padding:0px;
-   }
-   body {
-   background:#ebebeb;
-   }
-   @media(max-width:1000px){
-   .top-nav{
-     display:none;  
-   }
-  }
-  @media(max-width:800px) {
-   .form-control{
-    width:30%;
-	display:inline-block;
-    transition:0.2s;
-   }
-   .form-control:focus {
-    width:50%;
-   }
-  }
-   .main {
-   margin-top:2em;
-   }
-  .post {
-   background:#fff;
-   padding:1.8em;
-   margin-bottom:2em;
-   position:relative;
-   overflow:hidden;
-  }
-  .post-header{
-   text-align:center;
-   margin-bottom:20px;
-  }
-   .post-header h1 a{
-    color:#000;	
-   }
-   .post-header h1 a:hover {
-    text-decoration:none;
-   }
-   .post-mate {
-    margin-top:14px;
-	font-size:12px;
-	color:#959595;
-   }
-   .post img {
-    width:100%;
-	margin-bottom:2em;
-   }
-   .post-button {
-    background:#f4645f;
-	color:#ffffff;
-	transition:0.2s;
-   }
-   .post-button:hover {
-    background:#303030;
-	color:#f4645f;
-   }
-   .page-footer {
-    background:#202020;
-	padding-top:1.8em;
-	color:#959595;
-	margin-top:1.5em;
-   }
-   .page-footer h4{
-   color:#ffffff;
-   padding-bottom:0.5em;
-   border-bottom:1px solid #303030;
-   }
-   .footer-mate-1{
-   padding:1.2em 0;  
-   }
-   .footer-mate-1 a{
-   color:#959595;
-   transition:0.2s;
-   text-decoration:none;
-   }
-   .footer-mate-1 a:hover{
-   color:#f4645f;
-   }
-   .footer-mate-1 time{
-    display:block;
-	padding-top:0.3em;
-	color:#505050;
-   }
-   .footer-title{
-   text-align:center;
-   background:#111;
-   color:#555;
-   padding:2em 0;
-   }
-   .footer-title span {
-   margin: 0 0.5em;
-   }
-   .page-right-title1{
-    padding:1.5em 2em; 
-	margin-bottom:1.5em;
-    background:#fff;  
-   }
-    .page-right-title1 span{
-	margin-top:1.5em;
-	
-	}
-   .page-right h5{
-    font-size:1.8em;
-    font-weight:400;
-	color:#303030;
-   }
-   .page-right a{
-    margin-top:1.5em;
-    display:block;
-	color:#f4645f
-   }
-   .page-right .button {
-   background:#f4645f;
-   color:#ffffff;
-   transition:0.2s;
-   }
-   .page-right .button:hover {
-    background:#303030;
-	
-   
-   }
-   .bottom-nav {
-    position:fixed;
-	right:1.5em;
-	bottom:1.5em;
-   }
-    .right-nav {
-	 position:fixed;
-	 right:3em;
-	 top:40%;
-	 background:#fff;	
-	}
-	@media(max-width:800px){
-	  .right-nav {
-	   display:none;
-	  }	
-	}
-	.on {
-	background-color:#f4645f;
-	}
-
-	.right-nav li a:hover{
-	background-color:#f4645f;
-	}
-     .right-nav li a {
-	 color:#303030;
-	 }	
-	 .right-nav li a:focus {
-	 background:#f4645f;
-	 }
-   .carousel-control span{
-   position:absolute;
-   top:40%;
-   right:50%;
-   display:block;
-   transition:0.3s;
-   }
-    .carousel-control .span1:hover {
-	 right:70%;
-	}
-	.carousel-control .span2:hover {
-	right:30%;
-	}
-	.carousel-indicators:hover li {
-	  margin-right:20px;
-	  transition:0.2s;
-	}
-	.gedan {
-	background:#fff;
-	}
-   </style>
-  </head>
-  <body>
-   <header>   
-    <nav class="navbar navbar-default ">
-	
-	<div class="container">
-      <a class="navbar-brand" href="#">网站首页</a>
-	  <ul class="nav nav-tabs navbar-nav  nav-ul top-nav">
-	   <li class=" dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">动漫<span class="caret"></span></a>
-	     <ul class="dropdown-menu">
-           <li><a href="#">a</a></li>
-         </ul>
-		 </li>
-	   <li><a href="#/home">音乐</a></li>
-	   <li><a href="#/about">漫画</a></li>
-	   <li><a href="#">杂谈</a></li>
-	  </ul>
-	  <form class="navbar-form navbar-right">
-	   <input type="text" class="form-control"/>	
-	   <a data-toggle="modal" href="#modal-1" class="btn btn-default">注册</a>
-	     
-	   <a  data-toggle="modal" href="#modal-1" class=" btn btn-default">登录</a> 
-	  </form>
-	  </div>
-       <div class="modal fade" id="modal-1">
-	     <div class="modal-dialog">
-	       <div class="modal-content">
-		     <div class="modal-header">
-			    <button type="button" class="close" data-dismiss="modal">
-                   <span>×</span>
-                 </button>
-				 <!--这里是关闭模态窗-->
-                <h4 class="modal-title">会员登录</h4>
-			 </div>
-			 <div class="modal-body">
-			   <div class="container-fluid">
-			   <div class="row col-md-8 col-md-offset-2">	
-			     <form>
-				 <div class="form-group">
-				 <label>
-				  账号
-				 </label>
-				 <input class="form-control" type="text">				 
-				 </input>
-				 </div>
-				 <div class="form-group">
-				 <label>
-				  密码
-				 </label>
-				 <input class="form-control" type="password">				 
-				 </input>
-				 </div>
-				 </form>
-			   </div>
-
-              </div>
-			  </div>
-               <!-- 注脚 -->
-                <div class="modal-footer">
-                <button type="button" class="btn btn-primary">
-                   登录
-               </button>
+                    </a>
+                </div>
             </div>
-		   </div>
-	     </div>
-	   </div>
-	</nav>
-		<div class="container">
-	      <div  class="carousel slide" id="myC" data-ride="carousel" >
-           <ol class="carousel-indicators"><!--轮播的指标-->
-		    <li data-target="#myC" data-slide-to="0" class="active"></li>
-		    <li data-target="#myC" data-slide-to="1"></li>
-			<li data-target="#myC" data-slide-to="2"></li>
-			<li data-target="#myC" data-slide-to="3"></li>
-		   </ol>
-		   <!--轮播项目-->
-		   <div class="carousel-inner">
-		   <div class="item active">
-		    <img src="name/1173415.jpg">
-			<div class="carousel-caption">标题1</div>
-			</div>
-             <div class="item">
-		    <img src="name/1173409.jpg">
-			<div class="carousel-caption">标题2</div>
-			</div>            
-			<div class="item">
-		    <img src="name/1057060.jpg">
-			<div class="carousel-caption">标题3</div>
-			</div>
-			 <div class="item">
-		    <img src="name/1173415.jpg">
-			<div class="carousel-caption">标题4</div>
-			</div>   
+        </header>
+        <div class="container" id="page">
+            <div class="row main">
+                <div class=" col-md-8  page-left">
+                    <article class="post ceshi" ng-repeat="x in [1,2,3,4,5]">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                <a href="#">
+                                    测试用的题目
+                                </a>
+                            </h1>
+                            <div class="post-mate">
+                                <span class="zuozhe">
+                                    作者：
+                                    <a href="#">
+                                        测试
+                                    </a>
+                                </span>
+                                <time class="post-date">
+                                    测试用
+                                </time>
+                            </div>
+                        </header>
+                        <a class="post-media">
+                            <img src="name/1057060.jpg">
+                        </a>
+                        <p class="post-p">
+                            这只是一段测试用的文字
+                        </P>
+                        <a href=“http://pan.baidu.com/share/link?shareid=1976740133&uk=1939956982”
+                        class="post-button btn btn-default" type="button">
+                            链接
+                        </a>
+                    </article>
+                </div>
+                <aside class="col-md-4 page-right">
+                    <div class="page-right-title1">
+                        <h5>
+                            社区
+                        </h5>
+                        <span>
+                            QQ群:123456789
+                        </span>
+                        <a href="#">
+                            问答社区
+                        </a>
+                    </div>
+                    <div class="page-right-title1">
+                        <h5>
+                            下载
+                        </h5>
+                        <a class="btn btn-default button">
+                            测试
+                        </a>
+                    </div>
+                    <div class="gedan" ng-model="Audio" ng-controller="audioPlay">
+                        <table class="table table-hover">
+                            <tr   ng-repeat='x in [1,2,3,4,5]'>
+                                <td>
+                                    <a>
+                                        测试1
+                                    </a>
+                                </td>
+                                <td>
+                                    <a ng-click="play($index)" href="">
+                                        {{Audio[$index].name}}
+                                    </a>
+                                </td>
+                            </tr>  
+						</table>
+                        <audio ng-src="{{audioPlay.src}}" ng-model="play.src" autoplay>
+                        </audio>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4" ng-repeat="x in [1,2,3]">
+                        <div class="footer-mate">
+                            <h4 class="footer-mate-title">
+                                最新文章
+                            </h4>
+                            <div class="footer-mate-1">
+                                <a href="#">
+                                    测试用的文字
+                                </a>
+                                <time>
+                                    2017年1月25日
+                                </time>
+                            </div>
+                            <div class="footer-mate-1">
+                                <a href="#">
+                                    测试用的文字
+                                </a>
+                                <time>
+                                    2017年1月25日
+                                </time>
+                            </div>
+                            <div class="footer-mate-1">
+                                <a href="#">
+                                    测试用的文字
+                                </a>
+                                <time>
+                                    2017年1月25日
+                                </time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span>
+                            测试用1
+                        </span>
+                        |
+                        <span>
+                            测试用2
+                        </span>
+                        |
+                        <span>
+                            测试用3
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- <ul class="right-nav nav  nav-pills nav-stacked">
+            <li ng-repeat='x in  [1,2,3,4,5,6]'>
+                <a href="#">
+                    测试1
+                </a>
+            </li>
+        </ul>
+        <a href="#" class="btn btn-primary bottom-nav">
+            回到顶部
+        </a>-->
+        <script>
+            var app = angular.module("audio", []);
+            app.controller("audioPlay",
+            function($scope,name) {
+                $scope.Audio = [{
+                    "name": "1111",
+                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+                },
+                {
+                    "name": "222",
+                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+                },
+                {
+                    "name": "333",
+                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+                },
+                {
+                    "name": "444",
+                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+                },
+                {
+                    "name": "55",
+                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
+                }];
+		  name.namef().then(function(){
+		  
+		  console.log('sssssssssssssssssssssssssss');
+		  })
+                $scope.play = function(x) {
 
-		   </div>
-		    <a class="left carousel-control" href="#myC" data-slide="prev"><span class="span1">11</span></a>
-			<a class="right carousel-control" href="#myC" data-slide="next"><span class="span2">22</span></a>	
-		  </div>
-		 </div>
-   </header>
-    <div class="container" id="page">
-     <div class="row main">
-     		
-	  <div class=" col-md-8  page-left" ng-view="">
-	    <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=549135277&uk=1939956982” class="post-button btn btn-default" type="button">
-		  阅读全文
-		 </a>
-		</article>
-   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href="http://pan.baidu.com/share/link?shareid=298424721&uk=1939956982" class="post-button btn btn-default" type="button">
-		  百度云链接
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=1176279506&uk=1939956982” class="post-button btn btn-default" type="button">
-		   百度云链接
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a class="post-button btn btn-default" type="button">
-		  阅读全文
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=3739881031&uk=1939956982” class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>
-		   <article class="post ceshi">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a href=“http://pan.baidu.com/share/link?shareid=1976740133&uk=1939956982” class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>
-	  </div>
-	  <aside class="col-md-4 page-right">
-	    <div class="page-right-title1">
-		  <h5>
-		  社区
-		  </h5>
-		  <span>QQ群:123456789</span>
-		  <a href="#">问答社区</a>
-	    </div>
-		<div class="page-right-title1">
-		<h5>
-		下载
-		</h5>
-        <a class="btn btn-default button">测试</a>
-		</div>
-		<div class="gedan"  ng-model="Audio" ng-controller="audioPlay">
-		 <table class="table table-hover">
-        	<tr>
-            <td><a>测试1</a></td>
-            <td><a  ng-click="play(0)"  href="" >{{Audio[0].name}}</a></td>
-			</tr>
-        	<tr>
-            <td><a>测试1</a></td>
-            <td><a  ng-click="play(1)" href="">{{Audio[1].name}}</a></td>
-			</tr>
-			<!--这里是可以使用ng-repeat来动态生成的，但是要为Audio增加一个标号，
-			并且使用repeat可能无法控制整体的布局-->
-        	<tr>
-            <td><a>测试1</a></td>
-            <td><a ng-click="play(2)"  href="">{{Audio[2].name}}</a></td>
-			</tr>
-        	<tr>
-            <td><a>测试1</a></td>
-            <td><a  ng-click="play(3)"  href="">{{Audio[3].name}}</a></td>
-			</tr>	
-        	<tr>
-            <td><a>测试1</a></td>
-            <td><a  ng-click="play(4)"   href="">{{Audio[4].name}}</a></td>
-			</tr>				
-		 </table>
-		 	<audio ng-src="{{audioPlay.src}}" ng-model="play.src" autoplay></audio>
-		</div>
-	  </aside>
-	 </div>
-	</div>
-	<footer class="page-footer">
-	  <div class="container">
-	   <div class="row">
-	   <div class="col-sm-4">
-	    <div class="footer-mate">
-		 <h4 class="footer-mate-title">
-		  最新文章
-		 </h4>
-		 <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-sm-4">
-	    <div class="footer-mate">
-		 <h4 class="footer-mate-title">
-		  最新文章
-		 </h4>
-		 <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-sm-4">
-	    <div class="footer-mate">
-		 <h4 class="footer-mate-title">
-		  最新文章
-		 </h4>
-		 <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		  <div class="footer-mate-1">
-		   <a href="#">测试用的文字</a>
-		   <time>2017年1月25日</time>
-		 </div>
-		</div>
-	   </div>
-	   </div>
-	   </div>
-	</footer>
-	<div class="footer-title">
-	 <div class="container">
-	   <div class="row">
-	    <div class="col-sm-12">
-		 <span>测试用1</span>|
-		 <span>测试用2</span>|
-		 <span>测试用3</span>
-		</div>
-	   </div>
-	  </div>
-	</div>
-    <ul class="right-nav nav  nav-pills nav-stacked">
-	<li><a href="#">测试1</a></li>
- 	<li><a href="#">测试1</a></li>
-	<li><a href="#">测试1</a></li>
-	<li><a href="#">测试1</a></li>
-	<li><a href="#">测试1</a></li>
-	<li><a href="#">测试1</a></li>
-	<li><a href="#">测试1</a></li>
-	</ul>
-	<a href ="#" class="btn btn-primary bottom-nav">回到顶部</a>
-	   <script src="name/Myfload.js"></script>
-	   	     <script type="text/ng-template" id="embedded.home.html">
-      	  <div class="page-left">
-	    <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=549135277&uk=1939956982” class="post-button btn btn-default" type="button">
-		  阅读全文
-		 </a>
-		</article>
-   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href="http://pan.baidu.com/share/link?shareid=298424721&uk=1939956982" class="post-button btn btn-default" type="button">
-		  百度云链接
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=1176279506&uk=1939956982” class="post-button btn btn-default" type="button">
-		   百度云链接
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a class="post-button btn btn-default" type="button">
-		  阅读全文
-		 </a>
-		</article>
-		   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a  href=“http://pan.baidu.com/share/link?shareid=3739881031&uk=1939956982” class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>   <article class="post">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>
-		   <article class="post ceshi">
-		 <header class="post-header">
-		  <h1 class="post-title">
-		     <a href="#">测试用的题目</a>			
-			</h1>		
-		<div class="post-mate">
-		  <span class="zuozhe">
-		   作者： 
-		   <a href="#">测试</a>
-		  </span>
-		 <time class="post-date">
-		  测试用
-		 </time>
-		 </div>
-		 </header>
-         <a class="post-media">
-		  <img src="name/1173415.jpg">
-		 </a>
-		 <p class="post-p">
-		 这只是一段测试用的文字
-		 </P>
-		 <a href=“http://pan.baidu.com/share/link?shareid=1976740133&uk=1939956982” class="post-button btn btn-default" type="button">
-		  链接
-		 </a>
-		</article>
-	  </div>
+                    $scope.audioPlay = {
+                        "src": $scope.Audio[x].src
+                    };
+                }
+            }).factory("name",
+            function($http, $q, Debug) {
+                return {
+                    namef: function(param) {
+                        param = param || {}
+                        var _data = {
+                            starTime: param.hasOwnProperty('startTime') ? param.startTime: ''
+                        }
+                        return $http.post('https://github.com/toupk123/dongman.githtb.io/edit/gh-pages/1.json');
+                    }
+                }
+            })
+        </script>
+    </body>
 
-  </script>
-
-  <script type="text/ng-template" id="embedded.about.html">
-  ss
-  </script>
-	   
-	   <script>
-	    var app=angular.module("audio",["ngRoute"]);
-		app.controller("audioPlay",function($scope){
-		   $scope.Audio=[
-		      {
-			     "name" : "1111",
-			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-			   },
-		      {
-			     "name" : "222",
-			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-			   },
-		      {
-			     "name" : "333",
-			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-			   },
-		      {
-			     "name" : "444",
-			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-			   },
-		      {
-			     "name" : "55",
-			     "src"  : "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-			   }		   
-		    ];		
-		   $scope.play=function(x){	
-
-		    $scope.audioPlay={			   
-			   "src":$scope.Audio[x].src           
- 			 };
-		   }
-		});
-       app.controller('HomeController', function ($scope, $route) { $scope.$route = $route;});
-   app.controller('AboutController', function ($scope, $route) { $scope.$route = $route;});
-  app.config(function ($routeProvider) {
-    $routeProvider.
-    when('/home', {
-        templateUrl: 'embedded.home.html',
-        controller: 'HomeController'
-    }).
-    when('/about', {
-        templateUrl: 'embedded.about.html',
-        controller: 'AboutController'
-    }).
-    otherwise({
-        redirectTo: '/home'
-    });
-});
-
-		
-		
-
-	   </script>
-
-
-
-  </body>
 </html>
