@@ -311,7 +311,10 @@ template: '\<div class="htmleaf-container"    style="width:100%;">\
 	</div>\
 </div>',
 controllerAs:'vm',
-controller:function($scope){	     
+controller:function($scope){
+	     vm.$postLink=function(){
+       console.log('11111111111111111111',$('.htmleaf-container').width());
+     }
  	   var vm=this;
 	   var width=$('.htmleaf-container').width();
 	   var height=width*(9/16);
