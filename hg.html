@@ -99,7 +99,9 @@
                     </div>
                 </div>
             </nav>
-	   <ce-shi style="display:block; width:100%; height:100%"></ce-shi>
+	    <div class='col-md-8 col-md-offset-2'>
+   		<ce-shi style="display:block; width:100%; height:100%"></ce-shi>
+	    </div>
         </header>
         <div class="container" id="page"  ng-controller="audioPlay">
             <div class="row main">
@@ -307,7 +309,7 @@ template: '\<div class="htmleaf-container" style="width:100%;height:100%;">\
 	</div>\
 </div>',
 controller:function(){
- 	var width=$('.htmleaf-container').width(),
+ 	$onInit=function(){var width=$('.htmleaf-container').width(),
 	    height=$('.htmleaf-container').height();
 	   console.log($('.htmleaf-container img').height());
     	var slider = new osSlider({ //开始创建效果
@@ -318,7 +320,7 @@ controller:function(){
 	        width:width,   //宽度	
 	     	height:height   //高度	
 	});
-	
+		}
 		}		
 })
         </script>
