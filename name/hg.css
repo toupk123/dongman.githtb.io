@@ -166,7 +166,10 @@
        transform:translateX(-40px);
    }
    .post-p{
-       text-indent: 2em;
+     text-indent: 2em;
+     width: 80%;
+
+     line-height: 2;
 }
    .carousel .right{
    background: url('right.png');
