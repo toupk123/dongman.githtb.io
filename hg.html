@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </nav>
-	   <ce-shi ng-show='ss'></ce-shi>
+	   <ce-shi></ce-shi>
         </header>
         <div class="container" id="page"  ng-controller="audioPlay">
             <div class="row main">
@@ -306,7 +306,7 @@ template: '\<div class="htmleaf-container">\
 		</ul>\
 	</div>\
 </div>',
-controller:function($scope){
+controller:function(){
  
     	var slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
@@ -314,7 +314,7 @@ controller:function($scope){
 		speed:3000, //速度 默认3000 可不填写
 		autoPlay:true //是否自动播放 默认true 可不填写
 	});
-	$scope.ss=true;
+	
 		}		
 })
         </script>
