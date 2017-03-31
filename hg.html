@@ -315,13 +315,14 @@ controller:function($scope){
  	   var vm=this;
 	     $scope.s1=false;
 	   var width=$('.htmleaf-container').width();
-	   
+	   var height=$('.htmleaf-container img').height();
     	var slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
 		speed:3000, //速度 默认3000 可不填写
 		autoPlay:true, //是否自动播放 默认true 可不填写
-	        width:width,   //宽度	
+	        width:width,   //宽度
+	        height:height
 	});
 		 $scope.s1=true;
 		console.log('ssssssssss',$('.htmleaf-container img').height());
