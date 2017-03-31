@@ -48,8 +48,8 @@ function osSlider(objs,width,height) {
                 $navParent.append('<li>'+(index+1)+'</li>');
             }
             $(this).css({//为每一个轮播体添加样式和顺序
-                'width':that.width + 'px',
-                'height':that.height + 'px',
+                'width':that.width,
+                'height':that.height,
                 'overflow':'hidden',
                 'position':'absolute',
                 'top':'0px',
@@ -170,16 +170,16 @@ function osSlider(objs,width,height) {
             $cvNode.html($backHTML);
             $cvNode.css({//为每个栅格节点添加css样式
                 'position':'absolute',
-                'width':that.width/12+'px',
-                'height':that.height+'px',
+                'width':that.width/12,
+                'height':that.height,
                 'zIndex':20,
                 'overflow':'hidden',
-                'left':that.width/12*i+'px',
+                'left':that.width/12*i,
                 'top':'0'
             });
             $cvNode.find('*').first().css({
                 'display':'block',
-                'margin-left':that.width/-12*i+'px'
+                'margin-left':that.width/-12*i
             });
         }
 
@@ -251,15 +251,15 @@ function osSlider(objs,width,height) {
             $cvNode.css({//为每个栅格节点添加css样式
                 'position':'absolute',
                 'width':that.width+'px',
-                'height':that.height/12+'px',
+                'height':that.height/12,
                 'zIndex':20,
                 'overflow':'hidden',
                 'left':'0',
-                'top':that.height/12*i+'px',
+                'top':that.height/12*i,
             });
             $cvNode.find('*').first().css({
                 'display':'block',
-                'margin-top':that.height/-12*i+'px'
+                'margin-top':that.height/-12*i
             });
         }
         switch (showNum) {
