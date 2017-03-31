@@ -16,7 +16,7 @@
 	 <link rel="stylesheet" href="name/osSlider.css" />
         <script src="name/osSlider.js"></script>
     </head>
-    <body ng-controller="audioPlay">
+    <body ng-controller="audioPlay as vm">
         <header>
             <nav class="navbar navbar-default ">
                 <div class="container">
@@ -324,10 +324,10 @@ controller:function($scope){
 	        width:width,   //宽度	
 	     	height:height   //高度	
 	});
-		$scope.$onInit=function(){
-		   var width=$('.htmleaf-container img').width(),
-	  	  height=$('.htmleaf-container img').height();
-		console.log('ssssssssssssss',height);
+		vm.$onInit=function(){
+		   var s1=$('.htmleaf-container img').width(),
+	  	  s2=$('.htmleaf-container img').height();
+		console.log('111111111111111',s2);
 		}	
 		}
 })
