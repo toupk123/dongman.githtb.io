@@ -9,8 +9,6 @@ function osSlider(objs,width,height) {
     that.cNodes = that.pNode.find(that.objs.cNode); //cNodes轮播子节点对象集合
     that.cNodeNums = that.cNodes.length; //预存轮播体的总数
     that.nowNodeKey = 0; //初始第一次默认显示节点为第一个
-    that.width = width;//得到容器的宽度
-    that.height = height;//得到容器的高度
     that.moveFlag = true;//添加是否可以进行下一个轮播状态
     that.isPause = false;//是否暂停状态
     that.speedNum = 0;//自动轮播的计数
