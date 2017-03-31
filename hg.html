@@ -99,9 +99,8 @@
                     </div>
                 </div>
             </nav>
-		测试测试测试{{vm.sss}}  {{ddd}}  {{vm.cc}}
-	    <div class='col-md-8 col-md-offset-2' value={{vm.sss}}>
-		    {{vm.sss}}
+		{{sss}}
+	    <div class='col-md-8 col-md-offset-2'>
    		<ce-shi style="display:block;" ng-if='sss'></ce-shi>
 	    </div>
         </header>
@@ -260,11 +259,7 @@
     }])
   .controller("audioPlay",
             function($scope,name) {
-	       var  vm=this;
-	       vm.sss='11111111';
-	     vm.cc='222'
-	     $scope.ddd='33333'
-	     console.log('222222222222222222222',vm.sss);
+	     $scope.sss=flase;
                 $scope.Audio = [{
                     "name": "さくら ~あなたに出会えてよかった~.mp3",
                     "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
