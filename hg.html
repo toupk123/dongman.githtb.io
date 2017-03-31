@@ -292,7 +292,7 @@
                 }
             })
 .component('ceShi',{
-template: '\<div class="htmleaf-container" ng-if='vm.s1'   style="width:100%;">\
+template: '\<div class="htmleaf-container" ng-if=s1   style="width:100%;">\
 	<div class="slider">\
 		<ul class="slider-main">\
 			<li>\
@@ -313,7 +313,7 @@ template: '\<div class="htmleaf-container" ng-if='vm.s1'   style="width:100%;">\
 controllerAs:'vm',
 controller:function($scope){	     
  	   var vm=this;
-	     vm.s1=false;
+	     $scope.s1=false;
 	   var width=$('.htmleaf-container').width();
 	   console.log($('.htmleaf-container img').height());
     	var slider = new osSlider({ //开始创建效果
