@@ -2,7 +2,7 @@
  * osSlider 阳光轮播插件 v1.0
  * objs 传送对象
  */
-function osSlider(objs,width,height) {
+function osSlider(objs) {
     var that = this; //that获得this的作用域 后面都是that 防止干扰
     that.objs = objs; //将传送来的对象赋予this
     that.pNode = $(that.objs.pNode); //pNode轮播容器对象
@@ -13,7 +13,7 @@ function osSlider(objs,width,height) {
     that.isPause = false;//是否暂停状态
     that.speedNum = 0;//自动轮播的计数
     if (!that.objs.speed) {//添加默认时间
-        that.objs.speed = 3000;
+        that.objs.speed = 4000;
     }
     if (!that.objs.autoPlay) {//添加默认自动播放
         that.objs.autoPlay = true;
@@ -48,8 +48,8 @@ function osSlider(objs,width,height) {
                 $navParent.append('<li>'+(index+1)+'</li>');
             }
             $(this).css({//为每一个轮播体添加样式和顺序
-                'width':that.width,
-                'height':that.height,
+                'width':that.width + 'px',
+                'height':that.height + 'px',
                 'overflow':'hidden',
                 'position':'absolute',
                 'top':'0px',
@@ -170,16 +170,16 @@ function osSlider(objs,width,height) {
             $cvNode.html($backHTML);
             $cvNode.css({//为每个栅格节点添加css样式
                 'position':'absolute',
-                'width':that.width/12,
-                'height':that.height,
+                'width':that.width/12+'px',
+                'height':that.height+'px',
                 'zIndex':20,
                 'overflow':'hidden',
-                'left':that.width/12*i,
+                'left':that.width/12*i+'px',
                 'top':'0'
             });
             $cvNode.find('*').first().css({
                 'display':'block',
-                'margin-left':that.width/-12*i
+                'margin-left':that.width/-12*i+'px'
             });
         }
 
@@ -251,15 +251,15 @@ function osSlider(objs,width,height) {
             $cvNode.css({//为每个栅格节点添加css样式
                 'position':'absolute',
                 'width':that.width+'px',
-                'height':that.height/12,
+                'height':that.height/12+'px',
                 'zIndex':20,
                 'overflow':'hidden',
                 'left':'0',
-                'top':that.height/12*i,
+                'top':that.height/12*i+'px',
             });
             $cvNode.find('*').first().css({
                 'display':'block',
-                'margin-top':that.height/-12*i
+                'margin-top':that.height/-12*i+'px'
             });
         }
         switch (showNum) {
