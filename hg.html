@@ -100,7 +100,7 @@
                 </div>
             </nav>
 
-	    <div class='col-md-8 col-md-offset-2'>
+	    <div class='col-md-12'>
    		<ce-shi style="display:block;"></ce-shi>
 	    </div>
         </header>
@@ -313,10 +313,9 @@ template: '\<div class="htmleaf-container"    style="width:100%;">\
 controllerAs:'vm',
 controller:function($scope){
 	        var vm=this;
-	     vm.$postLink=function(){
-	      console.log('22222222222222222',$('.s1').height())
-		 var width=$('.htmleaf-container').width();
-		var height=width/3;
+ 
+   		  var width=$('.htmleaf-container').width();
+	     	var height=width*(9/16);
               	       var  slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
@@ -326,15 +325,7 @@ controller:function($scope){
 	        height:height
 			       
 	});  
-  
-		 console.log('3333333333333333',$('.s1').height())
-     }
-     var width=$('.htmleaf-container').width();
-			$('.s1').width('100%')
-			$('.s1').height('auto')
-		$('.s1').css({'display':'block'});
-                     console.log('kuandu',$('.s1').width());
-		console.log('高度',$('.s1').height());console.log('高度12',$('.s1')[0].height);		
+		
 }
 })
         </script>
