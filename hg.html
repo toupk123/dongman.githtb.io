@@ -317,7 +317,7 @@ controller:function($scope){
 	      var width=$('.htmleaf-container').width();
 	      var height=$('.htmleaf-container img').height();
 	     console.log('222222222222222222222222222222',$('.htmleaf-container img').height())
-	        var slider = new osSlider({ //开始创建效果
+	         slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
 		speed:3000, //速度 默认3000 可不填写
@@ -325,7 +325,16 @@ controller:function($scope){
 	        width:width,   //宽度
 	        height:height
 	});    
+		 console.log('333333333333333333333333333333',$('.htmleaf-container img').height())
      }
+           	        var slider = new osSlider({ //开始创建效果
+		pNode:'.slider', //容器的选择器 必填
+		cNode:'.slider-main li', //轮播体的选择器 必填
+		speed:3000, //速度 默认3000 可不填写
+		autoPlay:true, //是否自动播放 默认true 可不填写
+	        width:width,   //宽度
+	        height:height
+	});    
        console.log('111111111111111111111111',$('.htmleaf-container img').height())
 		}
 })
