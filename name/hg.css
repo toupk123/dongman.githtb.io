@@ -32,7 +32,7 @@
    box-shadow: 0 1px 10px rgba(0,0,0,0.2);
    transform: translateY(20px);
     opacity: 1;
-    transition: my 0.2s;
+    transition: my 10s;
     
   }
   @keyframes my {
