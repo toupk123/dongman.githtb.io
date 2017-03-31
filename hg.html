@@ -314,6 +314,9 @@ controllerAs:'vm',
 controller:function($scope){
 	        var vm=this;
 	     vm.$postLink=function(){
+	      var width=$('.htmleaf-container').width();
+	      var height=$('.htmleaf-container img').height();
+	     console.log('222222222222222222222222222222',$('.htmleaf-container img').height())
 	        var slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
@@ -321,14 +324,9 @@ controller:function($scope){
 		autoPlay:true, //是否自动播放 默认true 可不填写
 	        width:width,   //宽度
 	        height:height
-	});
-          
+	});    
      }
-
-	   var width=$('.htmleaf-container').width();
-	   var height=width*(9/16);
-
-
+       console.log('111111111111111111111111',$('.htmleaf-container img').height())
 		}
 })
         </script>
