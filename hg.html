@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </nav>
-		s测试测试测试
+		测试测试测试{{vm.sss}}  {{ddd}}  {{vm.cc}}
 	    <div class='col-md-8 col-md-offset-2' value={{vm.sss}}>
 		    {{vm.sss}}
    		<ce-shi style="display:block;" ng-if='sss'></ce-shi>
@@ -262,6 +262,8 @@
             function($scope,name) {
 	       var  vm=this;
 	       vm.sss='11111111';
+	     vm.cc='222'
+	     $scope.ddd='33333'
 	     console.log('222222222222222222222',vm.sss);
                 $scope.Audio = [{
                     "name": "さくら ~あなたに出会えてよかった~.mp3",
