@@ -63,3 +63,7 @@
     border: 1px solid #f60;
     background: #f60;
 }
+.osSlider-main img {
+width:100%;
+ height:auto;
+}
