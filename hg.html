@@ -16,7 +16,7 @@
 	 <link rel="stylesheet" href="name/osSlider.css" />
         <script src="name/osSlider.js"></script>
     </head>
-    <body>
+    <body ng-controller="audioPlay">
         <header>
             <nav class="navbar navbar-default ">
                 <div class="container">
@@ -105,7 +105,7 @@
    		<ce-shi style="display:block;" ng-if='sss'></ce-shi>
 	    </div>
         </header>
-        <div class="container" id="page"  ng-controller="audioPlay">
+        <div class="container" id="page" >
             <div class="row main">
                 <div class=" col-md-8  page-left">
                     <div ui-view>
