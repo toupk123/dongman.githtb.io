@@ -127,7 +127,7 @@
                         <h5>
                             公告
                         </h5>
-                        <p class="">
+                        <p class="" ng-click=vm.ss2()>
                           这里只是个人用于测试，不会有什么其他内容，不过内含私货也说不定。 
                         </p>
                     </div>
@@ -283,7 +283,9 @@
                 name.namef().then(function(sss){
                     $scope.list=sss.data;
 		    console.log('sssssssss',$scope.list);
-                })
+                }) 
+	     var vm=this;
+	         vm.ss2=function(){$(".s1").height()}
                 $scope.play = function(x) {
 
                     $scope.audioPlay = {
