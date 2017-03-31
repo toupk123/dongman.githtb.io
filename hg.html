@@ -314,7 +314,7 @@ controllerAs:'vm',
 controller:function($scope){
 	        var vm=this;
 	     vm.$postLink=function(){
-	      console.log('22222222222222222',$('.s1').height)
+	      console.log('22222222222222222',$('.s1').height())
 		 var width=$('.htmleaf-container').width();
 		var height=width/3;
               	       var  slider = new osSlider({ //开始创建效果
@@ -327,7 +327,7 @@ controller:function($scope){
 			       
 	});  
   
-		 console.log('3333333333333333',$('.s1').height)
+		 console.log('3333333333333333',$('.s1').height())
      }
      var width=$('.htmleaf-container').width();
 
