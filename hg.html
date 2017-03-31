@@ -292,7 +292,7 @@
                 }
             })
 .component('ceShi',{
-template: '\<div class="htmleaf-container" ng-if='vm.sss1' style="width:100%;height:100%;">\
+template: '\<div class="htmleaf-container" ng-if='sss1' style="width:100%;height:100%;">\
 	<div class="slider">\
 		<ul class="slider-main">\
 			<li>\
@@ -312,7 +312,7 @@ template: '\<div class="htmleaf-container" ng-if='vm.sss1' style="width:100%;hei
 </div>',
 controllerAs:'vm',
 controller:function($scope){
-	         vm.sss1=false;
+	         $scope.sss1=false;
  	 vm.$onInit=function(){
 	   var width=$('.htmleaf-container').width(),
 	    height=$('.htmleaf-container').height();
