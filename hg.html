@@ -101,7 +101,7 @@
             </nav>
 		{{sss}}
 	    <div class='col-md-8 col-md-offset-2'>
-   		<ce-shi style="display:block;" ng-if='sss'></ce-shi>
+   		<ce-shi style="display:block;" ng-if='true'></ce-shi>
 	    </div>
         </header>
         <div class="container" id="page" >
@@ -292,7 +292,7 @@
                 }
             })
 .component('ceShi',{
-template: '\<div class="htmleaf-container" style="width:100%;height:100%;">\
+template: '\<div class="htmleaf-container" ng-if='vm.sss1' style="width:100%;height:100%;">\
 	<div class="slider">\
 		<ul class="slider-main">\
 			<li>\
@@ -311,9 +311,10 @@ template: '\<div class="htmleaf-container" style="width:100%;height:100%;">\
 	</div>\
 </div>',
 controllerAs:'vm',
-controller:function(){
-	         var vm=this;
- 		var width=$('.htmleaf-container').width(),
+controller:function($scope){
+	     var vm=$scope;
+	         vm.sss1=false;
+ 	 var width=$('.htmleaf-container').width(),
 	    height=$('.htmleaf-container').height();
 	   console.log($('.htmleaf-container img').height());
     	var slider = new osSlider({ //开始创建效果
@@ -325,7 +326,7 @@ controller:function(){
 	     	height:height   //高度	
 	});
 
-		console.log('ssssssssssssss',height);
+		console.log('ssssssssssssss',sss);
 		}		
 })
         </script>
