@@ -2,15 +2,15 @@
  * osSlider 阳光轮播插件 v1.0
  * objs 传送对象
  */
-function osSlider(objs) {
+function osSlider(objs,width,height) {
     var that = this; //that获得this的作用域 后面都是that 防止干扰
     that.objs = objs; //将传送来的对象赋予this
     that.pNode = $(that.objs.pNode); //pNode轮播容器对象
     that.cNodes = that.pNode.find(that.objs.cNode); //cNodes轮播子节点对象集合
     that.cNodeNums = that.cNodes.length; //预存轮播体的总数
     that.nowNodeKey = 0; //初始第一次默认显示节点为第一个
-    that.width = 1000;//得到容器的宽度
-    that.height = 500;//得到容器的高度
+    that.width = width;//得到容器的宽度
+    that.height = height;//得到容器的高度
     that.moveFlag = true;//添加是否可以进行下一个轮播状态
     that.isPause = false;//是否暂停状态
     that.speedNum = 0;//自动轮播的计数
