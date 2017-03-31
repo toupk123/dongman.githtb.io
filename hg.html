@@ -312,9 +312,9 @@ template: '\<div class="htmleaf-container" ng-if='vm.sss1' style="width:100%;hei
 </div>',
 controllerAs:'vm',
 controller:function($scope){
-	     var vm=$scope;
 	         vm.sss1=false;
- 	 var width=$('.htmleaf-container').width(),
+ 	 vm.$onInit=function(){
+	   var width=$('.htmleaf-container').width(),
 	    height=$('.htmleaf-container').height();
 	   console.log($('.htmleaf-container img').height());
     	var slider = new osSlider({ //开始创建效果
@@ -325,9 +325,10 @@ controller:function($scope){
 	        width:width,   //宽度	
 	     	height:height   //高度	
 	});
-
+		$scope.sss1=true
 		console.log('ssssssssssssss',sss);
-		}		
+		}	
+		}
 })
         </script>
     </body>
