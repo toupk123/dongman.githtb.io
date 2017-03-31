@@ -30,30 +30,30 @@
    position:relative;
    overflow:hidden;
    box-shadow: 0 1px 10px rgba(0,0,0,0.2);
-   animation:my 5s;
-   -o-animation:my 5s;
-   -moz-animation:my 5s;
-   -webkit-animation:my 5s;
+   animation:my 3s;
+   -o-animation:my 3s;
+   -moz-animation:my 3s;
+   -webkit-animation:my 3s;
   }
   @keyframes my {
     0%  {opacity:0; transform: translateY(20px); }
     50%  {opacity:0.5;transform: translateY(10px);   }
-    50%  {opacity:1;transform: translateY(0px);   }
+    100%  {opacity:1;transform: translateY(0px);   }
   }
   @-webkit-keyframes my {
     0%  {opacity:0; transform: translateY(20px); }
     50%  {opacity:0.5;transform: translateY(10px);   }
-    50%  {opacity:1;transform: translateY(0px);   }
+    100%  {opacity:1;transform: translateY(0px);   }
   }
   @-o-keyframes my {
     0%  {opacity:0; transform: translateY(20px); }
     50%  {opacity:0.5;transform: translateY(10px);   }
-    50%  {opacity:1;transform: translateY(0px);   }
+    100%  {opacity:1;transform: translateY(0px);   }
   }
   @-moz-keyframes my {
     0%  {opacity:0; transform: translateY(20px); }
     50%  {opacity:0.5;transform: translateY(10px);   }
-    50%  {opacity:1;transform: translateY(0px);   }
+    100%  {opacity:1;transform: translateY(0px);   }
   }
   .post-header{
    text-align:center;
