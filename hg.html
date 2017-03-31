@@ -100,7 +100,7 @@
                 </div>
             </nav>
 	    <div class='col-md-8 col-md-offset-2'>
-		    {{sss}}
+		    {{vm.sss}}
    		<ce-shi style="display:block;" ng-if='sss'></ce-shi>
 	    </div>
         </header>
@@ -309,7 +309,9 @@ template: '\<div class="htmleaf-container" style="width:100%;height:100%;">\
 		</ul>\
 	</div>\
 </div>',
-controller:function($scope){
+controllerAs:'vm',
+controller:function(){
+	         var vm=this;
  		var width=$('.htmleaf-container').width(),
 	    height=$('.htmleaf-container').height();
 	   console.log($('.htmleaf-container img').height());
@@ -323,7 +325,7 @@ controller:function($scope){
 	});
 
 		console.log('ssssssssssssss',height);
-		$scope.sss=true;
+		vm.sss=true;
 		}		
 })
         </script>
