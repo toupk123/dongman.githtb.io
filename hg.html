@@ -292,7 +292,7 @@
                 }
             })
 .component('ceShi',{
-template: '\<div class="htmleaf-container" ng-show=s1   style="width:100%;">\
+template: '\<div class="htmleaf-container"    style="width:100%;">\
 	<div class="slider">\
 		<ul class="slider-main">\
 			<li>\
@@ -313,9 +313,8 @@ template: '\<div class="htmleaf-container" ng-show=s1   style="width:100%;">\
 controllerAs:'vm',
 controller:function($scope){	     
  	   var vm=this;
-	     $scope.s1=false;
 	   var width=$('.htmleaf-container').width();
-	   var height=$('.htmleaf-container img').height();
+	   var height=width*(9/16);
     	var slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
@@ -324,8 +323,7 @@ controller:function($scope){
 	        width:width,   //宽度
 	        height:height
 	});
-		 $scope.s1=true;
-		console.log('ssssssssss',$('.htmleaf-container img').height());
+
 		}
 })
         </script>
