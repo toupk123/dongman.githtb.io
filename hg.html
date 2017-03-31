@@ -315,7 +315,7 @@ controller:function($scope){
  	   var vm=this;
 	     $scope.s1=false;
 	   var width=$('.htmleaf-container').width();
-	   console.log($('.htmleaf-container img').height());
+	   
     	var slider = new osSlider({ //开始创建效果
 		pNode:'.slider', //容器的选择器 必填
 		cNode:'.slider-main li', //轮播体的选择器 必填
@@ -323,7 +323,8 @@ controller:function($scope){
 		autoPlay:true, //是否自动播放 默认true 可不填写
 	        width:width,   //宽度	
 	});
-		    $scope.s1=true;
+		 $scope.s1=true;
+		console.log('ssssssssss',$('.htmleaf-container img').height());
 		}
 })
         </script>
