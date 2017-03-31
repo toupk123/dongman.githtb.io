@@ -12,7 +12,7 @@ function osSlider(objs) {
     that.moveFlag = true;//添加是否可以进行下一个轮播状态
      that.width =$(that.objs.pNode).width();//得到容器的宽度
     that.height = $(that.objs.pNode).height();//得到容器的高度
-    consloe.log("sssssssss",that.width);
+    console.log("sssssssss",that.width);
     that.isPause = false;//是否暂停状态
     that.speedNum = 0;//自动轮播的计数
     if (!that.objs.speed) {//添加默认时间
