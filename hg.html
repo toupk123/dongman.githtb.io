@@ -331,9 +331,10 @@ controller:function($scope){
      }
      var width=$('.htmleaf-container').width();
 			$('.s1').width('100%')
-			$('.s1').height('auto');
+			$('.s1').height('auto')
+		$('.s1').css({'display':'block'});
                      console.log('kuandu',$('.s1').width());
-		console.log('高度',$('.s1').height());	
+		console.log('高度',$('.s1').height());console.log('高度12',$('.s1')[0].height);		
 }
 })
         </script>
