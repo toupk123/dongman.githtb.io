@@ -380,14 +380,16 @@ controller:function($scope){
 							// add navigation events
 							$navArrows.children( ':first' ).on( 'click', function() {
 
-								slicebox.play();
+								slicebox.next();
+								setTimeout(slicebox.play(),4000);
 								return false;
 
 							} );
 
 							$navArrows.children( ':last' ).on( 'click', function() {
 								
-								slicebox.play();
+								slicebox.previous();
+								setTimeout(slicebox.play(),4000);
 								return false;
 
 							} );
