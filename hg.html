@@ -13,8 +13,9 @@
         <script src="name/bootstrap.min.js"></script>
         <script src="name/angular1.6.js"></script>
         <script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
-	 <link rel="stylesheet" href="name/osSlider.css" />
-        <script src="name/osSlider.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+	<link rel="stylesheet" type="text/css" href="css/custom.css" />
+	<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
     </head>
     <body ng-controller="audioPlay as vm">
         <header>
@@ -145,7 +146,7 @@
                                     </a>
                                 </td>
                             </tr>  
-						</table>
+			</table>
                         <audio ng-src="{{audioPlay.src}}" ng-model="play.src" autoplay>
                         </audio>
                     </div>
@@ -294,40 +295,141 @@
                 }
             })
 .component('ceShi',{
-template: '\<div class="htmleaf-container"    style="width:100%;">\
-	<div class="slider">\
-		<ul class="slider-main">\
-			<li>\
-				<img class="s1" src="name/img_1.jpg" alt="">\
-			</li>\
-			<li>\
-				<img class="s1"  src="name/img_1.jpg" alt="">\
-			</li>\
-			<li>\
-				<img class="s1"  src="name/img_1.jpg" alt="">\
-			</li>\
-			<li>\
-				<img  class="s1"  src="name/img_1.jpg" alt="">\
-			</li>\
-		</ul>\
-	</div>\
-</div>',
+template: '\<div class="wrapper">\
+				<ul id="sb-slider" class="sb-slider">\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Creative Lifesaver</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image2"/></a>\
+						<div class="sb-description">\
+							<h3>Honest Entertainer</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Brave Astronaut</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Affectionate Decision Maker</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Faithful Investor</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Groundbreaking Artist</h3>\
+						</div>\
+					</li>\
+					<li>\
+						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
+						<div class="sb-description">\
+							<h3>Selfless Philantropist</h3>\
+						</div>\
+					</li>\
+				</ul>\
+				<div id="shadow" class="shadow"></div>\
+				<div id="nav-arrows" class="nav-arrows">\
+					<a href="#">Next</a>\
+					<a href="#">Previous</a>\
+				</div>\
+				<div id="nav-dots" class="nav-dots">\
+					<span class="nav-dot-current"></span>\
+					<span></span>\
+					<span></span>\
+					<span></span>\
+					<span></span>\
+					<span></span>\
+					<span></span>\
+				</div>\
+			</div>',
 controllerAs:'vm',
 controller:function($scope){
-	        var vm=this;
- 
-   		  var width=$('.htmleaf-container').width();
-	     	var height=width*(9/16);
-              	       var  slider = new osSlider({ //开始创建效果
-		pNode:'.slider', //容器的选择器 必填
-		cNode:'.slider-main li', //轮播体的选择器 必填
-		speed:3000, //速度 默认3000 可不填写
-		autoPlay:true, //是否自动播放 默认true 可不填写
-	        width:width,   //宽度
-	        height:height
-			       
-	});  
-		
+			$(function() {
+				var Page = (function() {
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slicebox.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
 }
 })
         </script>
