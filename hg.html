@@ -355,6 +355,9 @@ controllerAs:'vm',
 controller:function($scope){
                  var vm=this;
 		vm.$postLink=function(){	
+	          slicebox.next();
+	      console.log('ssssssssss');
+              }
 	     $(function() {
 				var Page = (function() {
 					var $navArrows = $( '#nav-arrows' ).hide(),
@@ -421,7 +424,7 @@ controller:function($scope){
 				Page.init();
 
 			});
-		}
+		
 }
 })
         </script>
