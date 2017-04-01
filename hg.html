@@ -354,10 +354,6 @@ template: '\<div class="wrapper">\
 controllerAs:'vm',
 controller:function($scope){
                  var vm=this;
-		vm.$postLink=function(){	
-	          slicebox.next();
-	      console.log('ssssssssss');
-              }
 	     $(function() {
 				var Page = (function() {
 					var $navArrows = $( '#nav-arrows' ).hide(),
@@ -379,7 +375,7 @@ controller:function($scope){
 
 							}
 						} ),
-												initEvents = function() {
+						initEvents = function() {
 
 							// add navigation events
 							$navArrows.children( ':first' ).on( 'click', function() {
@@ -424,7 +420,9 @@ controller:function($scope){
 				Page.init();
 
 			});
-		
+	    vm.$postLink=function(){	
+	          slicebox.next();
+              }
 }
 })
         </script>
