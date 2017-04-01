@@ -376,52 +376,42 @@ controller:function($scope){
 
 							}
 						} ),
-						
-						init = function() {
-
-							initEvents();
-							
-						},
-						initEvents = function() {
+												initEvents = function() {
 
 							// add navigation events
 							$navArrows.children( ':first' ).on( 'click', function() {
 
 								slicebox.next();
-								alert('ss');
 								return false;
-								
 
 							} );
 
 							$navArrows.children( ':last' ).on( 'click', function() {
 								
 								slicebox.previous();
-								alert('ss');
 								return false;
 
 							} );
 
-							$nav.each( function( i ) {
-							
-								$( this ).on( 'click', function( event ) {
-									
-									var $dot = $( this );
-									
-									if( !slicebox.isActive() ) {
+							$( '#navPlay' ).on( 'click', function() {
+								
+								slicebox.play();
+								return false;
 
-										$nav.removeClass( 'nav-dot-current' );
-										$dot.addClass( 'nav-dot-current' );
-									
-									}
-									
-									slicebox.jump( i + 1 );
-									return false;
-								
-								} );
-								
 							} );
 
+							$( '#navPause' ).on( 'click', function() {
+								
+								slicebox.pause();
+								return false;
+
+							} );
+
+						},
+						init = function() {
+
+							initEvents();
+							
 						};
 
 						return { init : init };
