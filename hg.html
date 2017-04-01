@@ -353,7 +353,8 @@ template: '\<div class="wrapper">\
 			</div>',
 controllerAs:'vm',
 controller:function($scope){
-			$(function() {
+		vm.$postLink=function)(){	
+	     $(function() {
 				var Page = (function() {
 					var $navArrows = $( '#nav-arrows' ).hide(),
 						$navDots = $( '#nav-dots' ).hide(),
@@ -426,6 +427,7 @@ controller:function($scope){
 				Page.init();
 
 			});
+		}
 }
 })
         </script>
