@@ -398,7 +398,13 @@ controller:function($scope){
 								return false;
 
 							} );
+ 							(function() {
+								
+								slicebox.play();
+								alert('ss');
+								return false;
 
+							})();
 							$( '#navPause' ).on( 'click', function() {
 								
 								slicebox.pause();
@@ -418,7 +424,6 @@ controller:function($scope){
 				})();
 
 				Page.init();
-				slicebox.play();
 			});
 }
 })
