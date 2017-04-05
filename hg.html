@@ -124,6 +124,7 @@
                         <a href="#">
                             问答社区
                         </a>
+			    <tab><p>测试用1</p></tab>	
                     </div>
                     <div class="page-right-title1">
                         <h5>
@@ -428,6 +429,17 @@ controller:function($scope){
 			});
 }
 })
+.component('tab',{
+controllerAs:'vm',
+template:function(){
+		return  '\<div>\
+				 <header>\
+					<ul></ul>\
+				 </header>\
+				 </div>'
+},
+
+  })
         </script>
     </body>
 
