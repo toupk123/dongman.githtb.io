@@ -1,446 +1,275 @@
-<!doctype html>
-<html ng-app="audio">
-    
-    <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width" />
-        <title>
-            只是用于测试
-        </title>
-        <link href="name/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="name/Myf.css" rel="stylesheet" type="text/css">
-        <link href="name/hg.css" rel="stylesheet" type="text/css">
-        <script src="name/jquery-3.1.1.min.js"></script>
-        <script src="name/bootstrap.min.js"></script>
-        <script src="name/angular1.6.js"></script>
-        <script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="name/slicebox.css" />
-	<link rel="stylesheet" type="text/css" href="name/custom.css" />
-	<script type="text/javascript" src="name/modernizr.custom.46884.js"></script>
-			<script type="text/javascript" src="name/jquery.slicebox.js"></script>
-    </head>
-    <body ng-controller="audioPlay as vm">
-        <header>
-            <nav class="navbar navbar-default ">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        网站首页
-                    </a>
-                    <ul class="nav nav-tabs navbar-nav  nav-ul top-nav">
-                        <li class=" dropdown">
-                            <a  ui-sref='home.dongman'>
-                                动漫
-                            </a>
-                        </li>
-                        <li>
-                            <a  ui-sref='home.yinyue'>
-                                音乐
-                            </a>
-                        </li>
-                        <li>
-                            <a ui-sref="home.manhua">
-                                漫画
-                            </a>
-                        </li>
-                        <li>
-                            <a ui-sref="home.zatan">
-                                杂谈
-                            </a>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" />
-                        <a data-toggle="modal" href="#modal-1" class="btn btn-default">
-                            注册
-                        </a>
-                        <a data-toggle="modal" href="#modal-1" class=" btn btn-default">
-                            登录
-                        </a>
-                    </form>
-                </div>
-                <div class="modal fade" id="modal-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">
-                                    <span>
-                                        ×
-                                    </span>
-                                </button>
-                                <!--这里是关闭模态窗-->
-                                <h4 class="modal-title">
-                                    会员登录
-                                </h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    <div class="row col-md-8 col-md-offset-2">
-                                        <form>
-                                            <div class="form-group">
-                                                <label>
-                                                    账号
-                                                </label>
-                                                <input class="form-control" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    密码
-                                                </label>
-                                                <input class="form-control" type="password">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 注脚 -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">
-                                    登录
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-	    <div class='col-md-12'>
-   		<ce-shi style="display:block;"></ce-shi>
-	    </div>
-        </header>
-        <div class="container" id="page" >
-            <div class="row main">
-                <div class=" col-md-8  page-left">
-                    <div ui-view>
-
-                    </div>
-                </div>
-                <aside class="col-md-4 page-right">
-                    <div class="page-right-title1">
-                        <h5>
-                            社区
-                        </h5>
-                        <span>
-                            QQ群:123456789
-                        </span>
-                        <a href="#">
-                            问答社区
-                        </a>
-			    <tab><p>测试用1</p></tab>	
-                    </div>
-                    <div class="page-right-title1">
-                        <h5>
-                            公告
-                        </h5>
-                        <p class="" ng-click=vm.ss2()>
-                          这里只是个人用于测试，不会有什么其他内容，不过内含私货也说不定。 
-                        </p>
-                    </div>
-                    <div class="gedan" ng-model="Audio">
-                        <table class="table table-hover">
-                            <tr   ng-repeat='x in [1,2,3,4,5]'>
-                                <td>
-                                    <a>
-                                        测试1
-                                    </a>
-                                </td>
-                                <td>
-                                    <a ng-click="play($index)" href="">
-                                        {{Audio[$index].name}}
-                                    </a>
-                                </td>
-                            </tr>  
-			</table>
-                        <audio ng-src="{{audioPlay.src}}" ng-model="play.src" autoplay>
-                        </audio>
-                    </div>
-                </aside>
-            </div>
-        </div>
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4" ng-repeat="x in [1,2,3]">
-                        <div class="footer-mate">
-                            <h4 class="footer-mate-title">
-                                最新文章
-                            </h4>
-                            <div class="footer-mate-1">
-                                <a href="#">
-                                    测试用的文字
-                                </a>
-                                <time>
-                                    2017年1月25日
-                                </time>
-                            </div>
-                            <div class="footer-mate-1">
-                                <a href="#">
-                                    测试用的文字
-                                </a>
-                                <time>
-                                    2017年1月25日
-                                </time>
-                            </div>
-                            <div class="footer-mate-1">
-                                <a href="#">
-                                    测试用的文字
-                                </a>
-                                <time>
-                                    2017年1月25日
-                                </time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <div class="footer-title">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <span>
-                            测试用1
-                        </span>
-                        |
-                        <span>
-                            测试用2
-                        </span>
-                        |
-                        <span>
-                            测试用3
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-       <!-- <ul class="right-nav nav  nav-pills nav-stacked">
-            <li ng-repeat='x in  [1,2,3,4,5,6]'>
-                <a href="#">
-                    测试1
-                </a>
-            </li>
-        </ul>
-        <a href="#" class="btn btn-primary bottom-nav">
-            回到顶部
-        </a>-->
-        <script>
-     angular.module("audio",['ui.router'])
-     .factory("name",
-            function($http, $q) {
-                return {
-                    namef: function(param) {
-                        param = param || {}
-                        var _data = {
-                            starTime: param.hasOwnProperty('startTime') ? param.startTime: ''
-                        }
-                        return $http.get('name/111.json');
-                    }
-                }
-            })
-  .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider,$urlRouterProvider) {      
-       $urlRouterProvider.otherwise('/home'); 
-        $stateProvider     
-        .state("home", {
-            url: '/home',   
-            template:'<div ui-view></div>',
-            redirectTo:'home.dongman'
-        })    
-        .state("home.dongman", {//子路由
-            url: '/dome1',    
-            templateUrl:'name/dome1.html'
-        })  
-        .state("home.yinyue", {//子路由
-            url: '/dome2',    
-            templateUrl:'name/dome2.html'
-        })
-        .state("home.manhua", {//子路由
-            url: '/dome3',    
-            templateUrl:'name/dome3.html'
-        })   
-        .state("home.zatan", {//子路由
-            url: '/dome4',    
-            templateUrl:'name/dome4.html'
-        })        
-    }])
-  .controller("audioPlay",
-            function($scope,name) {
-	     $scope.sss=false;
-                $scope.Audio = [{
-                    "name": "さくら ~あなたに出会えてよかった~.mp3",
-                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-                },
-                {
-                    "name": "さくら ~あなたに出会えてよかった~.mp3",
-                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-                },
-                {
-                    "name": "さくら ~あなたに出会えてよかった~.mp3",
-                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-                },
-                {
-                    "name": "さくら ~あなたに出会えてよかった~.mp3",
-                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-                },
-                {
-                    "name": "さくら ~あなたに出会えてよかった~.mp3",
-                    "src": "name/RSP - さくら ~あなたに出会えてよかった~.mp3"
-                }];
-                name.namef().then(function(sss){
-                    $scope.list=sss.data;
-		    console.log('sssssssss',$scope.list);
-                }) 
-	     var vm=this;
-	         vm.ss2=function(){alert($(".s1").height())}
-                $scope.play = function(x) {
-
-                    $scope.audioPlay = {
-                        "src": $scope.Audio[x].src
-                    };
-                }
-            })
-.component('ceShi',{
-template: '\<div class="wrapper">\
-				<ul id="sb-slider" class="sb-slider">\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Creative Lifesaver</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1173299.jpg" alt="image2"/></a>\
-						<div class="sb-description">\
-							<h3>Honest Entertainer</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1173409.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Brave Astronaut</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Affectionate Decision Maker</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Faithful Investor</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Groundbreaking Artist</h3>\
-						</div>\
-					</li>\
-					<li>\
-						<a href="http://www.cnblogs.com/lhb25/" target="_blank"><img src="name/1057060.jpg" alt="image1"/></a>\
-						<div class="sb-description">\
-							<h3>Selfless Philantropist</h3>\
-						</div>\
-					</li>\
-				</ul>\
-				<div id="shadow" class="shadow"></div>\
-				<div id="nav-arrows" class="nav-arrows">\
-					<a href="#">Next</a>\
-					<a href="#">Previous</a>\
-				</div>\
-				<div id="nav-options" class="nav-options" style="display: none;"> \
-					<span id="navPlay">Play</span> \
-					<span id="navPause">Pause</span> \
-				</div> \
-			</div>',
-controllerAs:'vm',
-controller:function($scope){
-                 var vm=this;
-	     $(function() {
-				var Page = (function() {
-					var $navArrows = $( '#nav-arrows' ).hide(),
-						$navDots = $( '#nav-dots' ).hide(),
-						$nav = $navDots.children( 'span' ),
-						$shadow = $( '#shadow' ).hide(),
-						slicebox = $( '#sb-slider' ).slicebox( {
-							onReady : function() {
-
-								$navArrows.show();
-								$navDots.show();
-								$shadow.show();
-
-							},
-							onBeforeChange : function( pos ) {
-
-								$nav.removeClass( 'nav-dot-current' );
-								$nav.eq( pos ).addClass( 'nav-dot-current' );
-
-							}
-						} ),
-						initEvents = function() {
-
-							// add navigation events
-							$navArrows.children( ':first' ).on( 'click', function() {
-
-								slicebox.next();
-								setTimeout(slicebox.play(),4000);
-								return false;
-
-							} );
-
-							$navArrows.children( ':last' ).on( 'click', function() {
-								
-								slicebox.previous();
-								setTimeout(slicebox.play(),4000);
-								return false;
-
-							} );
-
-							$( '#navPlay' ).on( 'click', function() {
-								
-								slicebox.play();
-								return false;
-
-							} );
- 							(function() {
-								
-								slicebox.play();
-								return false;
-
-							})();
-							$( '#navPause' ).on( 'click', function() {
-								
-								slicebox.pause();
-								return false;
-
-							} );
-
-						},
-						init = function() {
-
-							initEvents();
-							
-						};
-
-						return { init : init };
-
-				})();
-
-				Page.init();
-			});
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #000;
 }
-})
-.component('tab',{
-controllerAs:'vm',
-template:function(){
-		return  '\<div>\
-				 <header>\
-					<ul></ul>\
-				 </header>\
-				 </div>'
-},
-
-  })
-        </script>
-    </body>
-
-</html>
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.aa{
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  color: #ccc
+}
+</style>
+<body>
+    <canvas id="pinkboard"></canvas>
+ 
+    <script>
+       
+/*
+ * Settings
+ */
+var settings = {
+  particles: {
+    length:   500, // maximum amount of particles
+    duration:   2, // particle duration in sec
+    velocity: 100, // particle velocity in pixels/sec
+    effect: -0.75, // play with this for a nice effect
+    size:      30, // particle size in pixels
+  },
+};
+ 
+/*
+ * RequestAnimationFrame polyfill by Erik M?ller
+ */
+(function(){var b=0;var c=["ms","moz","webkit","o"];for(var a=0;a<c.length&&!window.requestAnimationFrame;++a){window.requestAnimationFrame=window[c[a]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[c[a]+"CancelAnimationFrame"]||window[c[a]+"CancelRequestAnimationFrame"]}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(h,e){var d=new Date().getTime();var f=Math.max(0,16-(d-b));var g=window.setTimeout(function(){h(d+f)},f);b=d+f;return g}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(d){clearTimeout(d)}}}());
+ 
+/*
+ * Point class
+ */
+var Point = (function() {
+  function Point(x, y) {
+    this.x = (typeof x !== 'undefined') ? x : 0;
+    this.y = (typeof y !== 'undefined') ? y : 0;
+  }
+  Point.prototype.clone = function() {
+    return new Point(this.x, this.y);
+  };
+  Point.prototype.length = function(length) {
+    if (typeof length == 'undefined')
+      return Math.sqrt(this.x * this.x + this.y * this.y);
+    this.normalize();
+    this.x *= length;
+    this.y *= length;
+    return this;
+  };
+  Point.prototype.normalize = function() {
+    var length = this.length();
+    this.x /= length;
+    this.y /= length;
+    return this;
+  };
+  return Point;
+})();
+ 
+/*
+ * Particle class
+ */
+var Particle = (function() {
+  function Particle() {
+    this.position = new Point();
+    this.velocity = new Point();
+    this.acceleration = new Point();
+    this.age = 0;
+  }
+  Particle.prototype.initialize = function(x, y, dx, dy) {
+    this.position.x = x;
+    this.position.y = y;
+    this.velocity.x = dx;
+    this.velocity.y = dy;
+    this.acceleration.x = dx * settings.particles.effect;
+    this.acceleration.y = dy * settings.particles.effect;
+    this.age = 0;
+  };
+  Particle.prototype.update = function(deltaTime) {
+    this.position.x += this.velocity.x * deltaTime;
+    this.position.y += this.velocity.y * deltaTime;
+    this.velocity.x += this.acceleration.x * deltaTime;
+    this.velocity.y += this.acceleration.y * deltaTime;
+    this.age += deltaTime;
+  };
+  Particle.prototype.draw = function(context, image) {
+    function ease(t) {
+      return (--t) * t * t + 1;
+    }
+    var size = image.width * ease(this.age / settings.particles.duration);
+    context.globalAlpha = 1 - this.age / settings.particles.duration;
+    context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
+  };
+  return Particle;
+})();
+ 
+/*
+ * ParticlePool class
+ */
+var ParticlePool = (function() {
+  var particles,
+      firstActive = 0,
+      firstFree   = 0,
+      duration    = settings.particles.duration;
+  
+  function ParticlePool(length) {
+    // create and populate particle pool
+    particles = new Array(length);
+    for (var i = 0; i < particles.length; i++)
+      particles[i] = new Particle();
+  }
+  ParticlePool.prototype.add = function(x, y, dx, dy) {
+    particles[firstFree].initialize(x, y, dx, dy);
+    
+    // handle circular queue
+    firstFree++;
+    if (firstFree   == particles.length) firstFree   = 0;
+    if (firstActive == firstFree       ) firstActive++;
+    if (firstActive == particles.length) firstActive = 0;
+  };
+  ParticlePool.prototype.update = function(deltaTime) {
+    var i;
+    
+    // update active particles
+    if (firstActive < firstFree) {
+      for (i = firstActive; i < firstFree; i++)
+        particles[i].update(deltaTime);
+    }
+    if (firstFree < firstActive) {
+      for (i = firstActive; i < particles.length; i++)
+        particles[i].update(deltaTime);
+      for (i = 0; i < firstFree; i++)
+        particles[i].update(deltaTime);
+    }
+    
+    // remove inactive particles
+    while (particles[firstActive].age >= duration && firstActive != firstFree) {
+      firstActive++;
+      if (firstActive == particles.length) firstActive = 0;
+    }
+    
+    
+  };
+  ParticlePool.prototype.draw = function(context, image) {
+    // draw active particles
+    if (firstActive < firstFree) {
+      for (i = firstActive; i < firstFree; i++)
+        particles[i].draw(context, image);
+    }
+    if (firstFree < firstActive) {
+      for (i = firstActive; i < particles.length; i++)
+        particles[i].draw(context, image);
+      for (i = 0; i < firstFree; i++)
+        particles[i].draw(context, image);
+    }
+  };
+  return ParticlePool;
+})();
+ 
+/*
+ * Putting it all together
+ */
+(function(canvas) {
+  var context = canvas.getContext('2d'),
+      particles = new ParticlePool(settings.particles.length),
+      particleRate = settings.particles.length / settings.particles.duration, // particles/sec
+      time;
+  
+  // get point on heart with -PI <= t <= PI
+  function pointOnHeart(t) {
+    return new Point(
+      160 * Math.pow(Math.sin(t), 3),
+      130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+    );
+  }
+  
+  // creating the particle image using a dummy canvas
+  var image = (function() {
+    var canvas  = document.createElement('canvas'),
+        context = canvas.getContext('2d');
+    canvas.width  = settings.particles.size;
+    canvas.height = settings.particles.size;
+    // helper function to create the path
+    function to(t) {
+      var point = pointOnHeart(t);
+      point.x = settings.particles.size / 2 + point.x * settings.particles.size / 350;
+      point.y = settings.particles.size / 2 - point.y * settings.particles.size / 350;
+      return point;
+    }
+    // create the path
+    context.beginPath();
+    var t = -Math.PI;
+    var point = to(t);
+    context.moveTo(point.x, point.y);
+    while (t < Math.PI) {
+      t += 0.01; // baby steps!
+      point = to(t);
+      context.lineTo(point.x, point.y);
+    }
+    context.closePath();
+    // create the fill
+    context.fillStyle = '#ea80b0';
+    context.fill();
+    // create the image
+    var image = new Image();
+    image.src = canvas.toDataURL();
+    return image;
+  })();
+  
+  // render that thing!
+  function render() {
+    // next animation frame
+    requestAnimationFrame(render);
+    
+    // update time
+    var newTime   = new Date().getTime() / 1000,
+        deltaTime = newTime - (time || newTime);
+    time = newTime;
+    
+    // clear canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // create new particles
+    var amount = particleRate * deltaTime;
+    for (var i = 0; i < amount; i++) {
+      var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+      var dir = pos.clone().length(settings.particles.velocity);
+      particles.add(canvas.width / 2 + pos.x, canvas.height / 2 - pos.y, dir.x, -dir.y);
+    }
+    
+    // update and draw particles
+    particles.update(deltaTime);
+    particles.draw(context, image);
+  }
+  
+  // handle (re-)sizing of the canvas
+  function onResize() {
+    canvas.width  = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+  }
+  window.onresize = onResize;
+  
+  // delay rendering bootstrap
+  setTimeout(function() {
+    onResize();
+    render();
+  }, 10);
+})(document.getElementById('pinkboard'));
+ 
+ 
+ 
+ 
+    </script>
+</body>
